@@ -59,7 +59,7 @@ body.dark-mode:not(.high-contrast) h3,
 body.dark-mode:not(.high-contrast) h4, 
 body.dark-mode:not(.high-contrast) h5, 
 body.dark-mode:not(.high-contrast) h6 {
-    color: var(--text-dark);
+    color: var(--text-hc);
 }
 
 body.dark-mode:not(.high-contrast) .section-subtitle,
@@ -274,7 +274,7 @@ body.high-contrast .nav-link::after {
     color: var(--primary);
 }
 
-body.high-contrast .nav-link:hover {
+body.high-contrast .nav-link.active {
     color: var(--text-hc);
 }
 
