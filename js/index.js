@@ -61,3 +61,12 @@ increaseFontSize.addEventListener('click', () => {
         localStorage.setItem('fontSize', 'large');
     }
 });
+
+//JQUERY
+
+$(document).ready(function() {
+    $("#clickme").on("click", function(e) {
+        e.preventDefault();
+        alert("Clicked!");
+    }); 
+});

@@ -1,0 +1,522 @@
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --secondary: #64748b;
+    --accent: #f59e0b;
+    --light: #f8fafc;
+    --dark: #1e293b;
+    --success: #10b981;
+    --info: #0ea5e9;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --bg-light: #ffffff;
+    --text-light: #1e293b;
+    --card-bg-light: #ffffff;
+    --border-light: #e2e8f0;
+    
+    /* Dark mode variables */
+    --bg-dark: #121212;
+    --text-dark: #f8fafc;
+    --card-bg-dark: #1e1e1e;
+    --border-dark: #2d2d2d;
+    
+    /* High contrast variables */
+    --primary-hc: #0000ff;
+    --bg-hc: #000000;
+    --text-hc: #ffffff;
+    --border-hc: #ffffff;
+    
+    /* Adding missing variables that were used but not defined */
+    --primary-dark-mode: #7b79f7; /* Lighter version of primary for dark mode */
+    --secondary-dark-mode: #a1aebf; /* Lighter version of secondary for dark mode */
+    --card-header-dark: #2d2d2d; /* Card header background for dark mode */
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+body.high-contrast {
+    background-color: var(--bg-hc);
+    color: var(--text-hc);
+}
+
+.navbar {
+    background-color: var(--bg-light);
+    border-bottom: 1px solid var(--border-light);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-mode .navbar {
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid var(--border-dark);
+}
+
+body.high-contrast .navbar {
+    background-color: var(--bg-hc);
+    border-bottom: 1px solid var(--border-hc);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+body.dark-mode .navbar-brand,
+body.dark-mode .nav-link {
+    color: var(--text-dark) !important;
+}
+
+body.dark-mode .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.hero-section {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 3rem 0;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+body.dark-mode .hero-section {
+    background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+}
+
+.card {
+    background-color: var(--card-bg-light);
+    border: 1px solid var(--border-light);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .card {
+    background-color: var(--card-bg-dark);
+    border: 1px solid var(--border-dark);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    position: relative;
+    background-color: var(--bg-light);
+    border-bottom: 1px solid var(--border-light);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-mode .card-header {
+    background-color: var(--card-header-dark);
+    border-bottom: 1px solid var(--border-dark);
+}
+
+body.high-contrast .card {
+    background-color: var(--bg-hc);
+    border: 1px solid var(--border-hc);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+body.dark-mode .btn-primary {
+    background-color: var(--primary-dark-mode);
+    border-color: var(--primary-dark-mode);
+    color: var(--bg-dark); /* Ensure text is visible */
+}
+
+body.dark-mode .btn-primary:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+body.high-contrast .btn-primary {
+    background-color: var(--primary-hc);
+    border-color: var(--primary-hc);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+body.dark-mode .btn-outline-primary {
+    color: var(--primary-dark-mode);
+    border-color: var(--primary-dark-mode);
+}
+
+body.dark-mode .btn-outline-primary:hover {
+    background-color: var(--primary-dark-mode);
+    color: var(--bg-dark);
+}
+
+body.dark-mode .btn-outline-danger {
+    color: #f87171;
+    border-color: #f87171;
+}
+
+body.dark-mode .btn-outline-danger:hover {
+    background-color: #f87171;
+    color: var(--bg-dark);
+}
+
+body.high-contrast .btn-outline-primary {
+    color: var(--text-hc);
+    border-color: var(--border-hc);
+}
+
+.profile-header {
+    position: relative;
+}
+
+.profile-cover {
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: 0.5rem 0.5rem 0 0;
+    transition: background 0.3s ease;
+}
+
+body.dark-mode .profile-cover {
+    background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid var(--bg-light);
+    position: absolute;
+    bottom: -75px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--primary);
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .profile-avatar {
+    border-color: var(--card-bg-dark);
+    background-color: #2d2d2d;
+    color: var(--primary-dark-mode);
+}
+
+body.high-contrast .profile-avatar {
+    border-color: var(--bg-hc);
+}
+
+.profile-info {
+    margin-top: 85px;
+    text-align: center;
+}
+
+.skill-badge {
+    background-color: var(--primary);
+    color: white;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .skill-badge {
+    background-color: var(--primary-dark-mode);
+    color: var(--bg-dark);
+}
+
+body.high-contrast .skill-badge {
+    background-color: var(--primary-hc);
+}
+
+.accessibility-controls {
+    position: fixed;
+    right: 20px;
+    top: 100px;
+    background-color: var(--card-bg-light);
+    border: 1px solid var(--border-light);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .accessibility-controls {
+    background-color: var(--card-bg-dark);
+    border: 1px solid var(--border-dark);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.high-contrast .accessibility-controls {
+    background-color: var(--bg-hc);
+    border: 1px solid var(--border-hc);
+}
+
+.accessibility-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    background-color: var(--light);
+    color: var(--dark);
+    border: 1px solid var(--border-light);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-mode .accessibility-btn {
+    background-color: #2d2d2d;
+    color: var(--text-dark);
+    border: 1px solid var(--border-dark);
+}
+
+body.dark-mode .accessibility-btn:hover {
+    background-color: #3d3d3d;
+}
+
+body.high-contrast .accessibility-btn {
+    background-color: var(--bg-hc);
+    color: var(--text-hc);
+    border: 1px solid var(--border-hc);
+}
+
+.progress {
+    height: 0.75rem;
+    margin-bottom: 1rem;
+    background-color: #e2e8f0;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .progress {
+    background-color: #2d2d2d;
+}
+
+.progress-bar {
+    background-color: var(--primary);
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .progress-bar {
+    background-color: var(--primary-dark-mode);
+}
+
+body.high-contrast .progress-bar {
+    background-color: var(--primary-hc);
+}
+
+.experience-item {
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--primary);
+    margin-bottom: 1.5rem;
+    position: relative;
+    transition: border-left-color 0.3s ease;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    left: -7px;
+    top: 0;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .experience-item {
+    border-left-color: var(--primary-dark-mode);
+}
+
+body.dark-mode .experience-item::before {
+    background-color: var(--primary-dark-mode);
+}
+
+body.high-contrast .experience-item {
+    border-left-color: var(--primary-hc);
+}
+
+body.high-contrast .experience-item::before {
+    background-color: var(--primary-hc);
+}
+
+.edit-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.edit-icon:hover {
+    color: var(--primary);
+}
+
+body.dark-mode .edit-icon {
+    color: var(--secondary-dark-mode);
+}
+
+body.dark-mode .edit-icon:hover {
+    color: var(--primary-dark-mode);
+}
+
+body.high-contrast .edit-icon {
+    color: var(--text-hc);
+}
+
+body.high-contrast .edit-icon:hover {
+    color: var(--primary-hc);
+}
+
+body.dark-mode .text-muted {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .form-control {
+    background-color: #2d2d2d;
+    border-color: var(--border-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode .form-control::placeholder {
+    color: #6b7280;
+}
+
+body.dark-mode footer {
+    background-color: #1a1a1a !important;
+    color: var(--text-dark);
+}
+
+/* Additional fixes for dark mode visibility */
+
+/* Links */
+body.dark-mode a {
+    color: var(--primary-dark-mode);
+    transition: color 0.3s ease;
+}
+
+body.dark-mode a:hover {
+    color: var(--primary);
+}
+
+/* Modal and dropdown backgrounds */
+body.dark-mode .modal-content {
+    background-color: var(--card-bg-dark);
+    border-color: var(--border-dark);
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .modal-footer {
+    border-color: var(--border-dark);
+}
+
+body.dark-mode .dropdown-menu {
+    background-color: var(--card-bg-dark);
+    border-color: var(--border-dark);
+}
+
+body.dark-mode .dropdown-item {
+    color: var(--text-dark);
+}
+
+body.dark-mode .dropdown-item:hover {
+    background-color: #2d2d2d;
+}
+
+/* Table styling */
+body.dark-mode .table {
+    color: var(--text-dark);
+}
+
+body.dark-mode .table td,
+body.dark-mode .table th {
+    border-color: var(--border-dark);
+}
+
+body.dark-mode .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* List groups */
+body.dark-mode .list-group-item {
+    background-color: var(--card-bg-dark);
+    border-color: var(--border-dark);
+    color: var(--text-dark);
+}
+
+/* Input group */
+body.dark-mode .input-group-text {
+    background-color: #2d2d2d;
+    border-color: var(--border-dark);
+    color: var(--text-dark);
+}
+
+/* Fix for headings */
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6 {
+    color: var(--text-dark);
+}
+
+/* Fix for badges */
+body.dark-mode .badge {
+    background-color: #2d2d2d;
+    color: var(--text-dark);
+}
+
+body.dark-mode .badge-primary {
+    background-color: var(--primary-dark-mode);
+    color: var(--bg-dark);
+}
+
+/* Fix for alerts */
+body.dark-mode .alert {
+    background-color: #2d2d2d;
+    border-color: var(--border-dark);
+    color: var(--text-dark);
+}
+
+/* Fix for code and pre */
+body.dark-mode code, 
+body.dark-mode pre {
+    background-color: #2d2d2d;
+    color: #e2e8f0;
+}
+
+/* Fix for blockquote */
+body.dark-mode blockquote {
+    border-left-color: var(--primary-dark-mode);
+    color: var(--text-dark);
+}

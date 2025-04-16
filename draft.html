@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Morgan - UX/UI Designer Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --primary-dark: #0a58ca;
+            --success: #198754;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --secondary: #6c757d;
+        }
+        
+        /* High contrast mode */
+        .high-contrast {
+            --primary: #0066ff;
+            --primary-dark: #0055d4;
+            --success: #00aa44;
+            --dark: #000000;
+            --light: #ffffff;
+            --secondary: #555555;
+        }
+        
+        /* Dark mode */
+        .dark-mode {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --success: #10b981;
+            --dark: #f8f9fa;
+            --light: #1f2937;
+            --secondary: #9ca3af;
+            background-color: #121212;
+            color: #e5e5e5;
+        }
+        
+        .dark-mode .card {
+            background-color: #1f2937;
+            border-color: #374151;
+        }
+        
+        .dark-mode .card-header {
+            background-color: #1a1a1a;
+            border-color: #374151;
+        }
+        
+        .dark-mode .list-group-item {
+            background-color: #1f2937;
+            color: #e5e5e5;
+        }
+        
+        .dark-mode .text-secondary {
+            color: #9ca3af !important;
+        }
+        
+        .badge-skill {
+            display: inline-block;
+            padding: 0.35em 0.65em;
+            font-size: 0.75em;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.25rem;
+            background-color: var(--primary);
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-picture {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+        
+        .timeline-item {
+            padding-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .timeline-item:not(:last-child) {
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+        
+        .dark-mode .timeline-item:not(:last-child) {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item i {
+            width: 30px;
+            color: var(--primary);
+        }
+        
+        .contact-item p {
+            margin-bottom: 0;
+        }
+
+        /* Card header with edit icon */
+        .edit-icon {
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .edit-icon:hover {
+            color: var(--primary-dark);
+            transform: scale(1.1);
+        }
+        
+        /* Progress bars */
+        .progress {
+            height: 0.75rem;
+            background-color: rgba(0,0,0,0.1);
+        }
+        
+        .dark-mode .progress {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .progress-bar {
+            background-color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Content -->
+    <div class="container py-4">
+        <!-- Profile Header -->
+        <div class="profile-header mb-4 p-3 bg-white rounded shadow-sm dark-mode-toggle">
+            <div class="row align-items-center">
+                <div class="col-md-2 text-center text-md-start mb-4 mb-md-0">
+                    <img src="../img/1.webp" alt="Profile picture of Alex Morgan" class="profile-picture">
+                </div>
+                <div class="col-md-7 text-center text-md-start mb-4 mb-md-0">
+                    <div class="d-flex align-items-center justify-content-center justify-content-md-start mb-2">
+                        <h1 class="h3 mb-0 me-2">Alex Morgan</h1>
+                        <span class="badge bg-success">Available</span>
+                    </div>
+                    <p class="lead mb-1">UX/UI Designer & Accessibility Specialist</p>
+                    <p class="text-secondary">San Francisco, CA (Open to Remote)</p>
+                </div>
+                <div class="col-md-3 text-center text-md-end">
+                    <button class="btn btn-primary mb-2 mb-md-0 me-md-2"><i class="fa fa-envelope me-2"></i>Contact</button>
+                    <button class="btn btn-outline-primary"><i class="fa fa-download me-2"></i>Resume</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-lg-8">
+                <!-- About Me Section -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h2 class="h5 mb-0">About Me</h2>
+                        <span class="edit-icon"><i class="fas fa-edit"></i></span>
+                    </div>
+                    <div class="card-body">
+                        <p>I'm a UX/UI designer with 6+ years of experience specializing in accessible design. As someone with ADHD and mild visual impairment, I bring a unique perspective to creating inclusive digital experiences. I'm passionate about ensuring technology works for everyone, regardless of ability.</p>
+                        <p class="mb-0">My approach combines user-centered design principles with WCAG guidelines to create beautiful, functional, and accessible interfaces. I've worked with startups and Fortune 500 companies to improve their digital accessibility and user experience.</p>
+                    </div>
+                </div>
+
+                <!-- Work Experience -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h2 class="h5 mb-0">Work Experience</h2>
+                        <span class="edit-icon"><i class="fas fa-edit"></i></span>
+                    </div>
+                    <div class="card-body">
+                        <div class="timeline-item">
+                            <h3 class="h6 mb-1">Senior UX Designer & Accessibility Specialist</h3>
+                            <p class="mb-1"><strong>TechForAll Solutions</strong> • Full-time</p>
+                            <p class="text-secondary mb-2">Jan 2020 - Present • 3 years 8 months</p>
+                            <ul>
+                                <li>Lead accessibility initiatives across all digital products, ensuring WCAG 2.1 AA compliance</li>
+                                <li>Conducted accessibility audits and provided remediation plans for 15+ client websites</li>
+                                <li>Developed an internal accessibility design system that reduced compliance issues by 78%</li>
+                                <li>Trained 30+ designers and developers on accessible design and development practices</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline-item">
+                            <h3 class="h6 mb-1">UX Designer</h3>
+                            <p class="mb-1"><strong>Digital Innovations Inc.</strong> • Full-time</p>
+                            <p class="text-secondary mb-2">Mar 2017 - Dec 2019 • 2 years 10 months</p>
+                            <ul>
+                                <li>Designed user interfaces for web and mobile applications with a focus on usability</li>
+                                <li>Advocated for and implemented accessible design practices within the design team</li>
+                                <li>Conducted user research and usability testing with diverse user groups</li>
+                                <li>Created wireframes, prototypes, and high-fidelity designs for 20+ projects</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline-item">
+                            <h3 class="h6 mb-1">UI/UX Design Intern</h3>
+                            <p class="mb-1"><strong>CreativeTech Studios</strong> • Internship</p>
+                            <p class="text-secondary mb-2">Jun 2016 - Feb 2017 • 9 months</p>
+                            <ul>
+                                <li>Assisted senior designers with creating user interfaces for web applications</li>
+                                <li>Conducted competitive analysis and user research</li>
+                                <li>Created wireframes and visual designs for mobile applications</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h2 class="h5 mb-0">Education</h2>
+                        <span class="edit-icon"><i class="fas fa-edit"></i></span>
+                    </div>
+                    <div class="card-body">
+                        <div class="timeline-item">
+                            <h3 class="h6 mb-1">Master of Human-Computer Interaction</h3>
+                            <p class="mb-1"><strong>University of California, Berkeley</strong></p>
+                            <p class="text-secondary mb-2">2014 - 2016</p>
+                            <p>Specialized in accessible design and inclusive user experience. Thesis: "Designing for Neurodiversity: Creating Inclusive Digital Experiences"</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <h3 class="h6 mb-1">Bachelor of Fine Arts in Graphic Design</h3>
+                            <p class="mb-1"><strong>Rhode Island School of Design</strong></p>
+                            <p class="text-secondary mb-2">2010 - 2014</p>
+                            <p>Graduated with honors. Focused on digital design and interactive media.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h2 class="h5 mb-0">Skills & Expertise</h2>
+                        <span class="edit-icon"><i class="fas fa-edit"></i></span>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <span class="badge-skill">UX Design</span>
+                            <span class="badge-skill">UI Design</span>
+                            <span class="badge-skill">Accessibility (WCAG 2.1)</span>
+                            <span class="badge-skill">User Research</span>
+                            <span class="badge-skill">Wireframing</span>
+                            <span class="badge-skill">Prototyping</span>
+                            <span class="badge-skill">Figma</span>
+                            <span class="badge-skill">Adobe XD</span>
+                            <span class="badge-skill">Sketch</span>
+                            <span class="badge-skill">HTML/CSS</span>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <p class="mb-1">UX Design</p>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="progress mb-2">
+                                    <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <p class="mb-1">UI Design</p>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="progress mb-2">
+                                    <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <p class="mb-1">Accessibility</p>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="progress mb-2">
+                                    <div class="progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="mb-1">HTML/CSS</p>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="progress mb-2">
+                                    <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-lg-4">
+                <!-- Profile Completion -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header">
+                        <h2 class="h5 mb-0">Profile Completion</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <p class="small text-secondary">Your profile is almost complete! Add your certifications to reach 100%.</p>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item px-0 py-2 d-flex align-items-center border-0">
+                                <i class="fa fa-check-circle text-success me-2"></i> Personal information
+                            </li>
+                            <li class="list-group-item px-0 py-2 d-flex align-items-center border-0">
+                                <i class="fa fa-check-circle text-success me-2"></i> Work experience
+                            </li>
+                            <li class="list-group-item px-0 py-2 d-flex align-items-center border-0">
+                                <i class="fa fa-check-circle text-success me-2"></i> Education
+                            </li>
+                            <li class="list-group-item px-0 py-2 d-flex align-items-center border-0">
+                                <i class="fa fa-check-circle text-success me-2"></i> Skills
+                            </li>
+                            <li class="list-group-item px-0 py-2 d-flex align-items-center border-0">
+                                <i class="fa fa-circle text-secondary me-2"></i> Certifications
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- NEW: Certifications -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h2 class="h5 mb-0">Certifications</h2>
+                        <span class="edit-icon"><i class="fas fa-edit"></i></span>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-start mb-3 pb-3 border-bottom">
+                            <i class="fas fa-certificate me-3" style="color: var(--primary); font-size: 1.2rem;"></i>
+                            <div>
+                                <h3 class="h6 mb-1">IAAP Certified Professional in Accessibility Core Competencies (CPACC)</h3>
+                                <p class="small text-secondary mb-0">International Association of Accessibility Professionals</p>
+                                <p class="small text-secondary">Issued Mar 2022 • No Expiration</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-certificate me-3" style="color: var(--primary); font-size: 1.2rem;"></i>
+                            <div>
+                                <h3 class="h6 mb-1">Certified User Experience Professional (CUXP)</h3>
+                                <p class="small text-secondary mb-0">Nielsen Norman Group</p>
+                                <p class="small text-secondary">Issued Jun 2019 • Expires Jun 2025</p>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button class="btn btn-sm btn-outline-primary">Add Certification</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accessibility Needs -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header">
+                        <h2 class="h5 mb-0">Accessibility Needs</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fa fa-eye me-3" style="color: var(--primary); font-size: 1.2rem;"></i>
+                            <div>
+                                <h3 class="h6 mb-1">Mild Visual Impairment</h3>
+                                <p class="small mb-0 text-secondary">Prefer high contrast interfaces and adjustable text size</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fa fa-brain me-3" style="color: var(--primary); font-size: 1.2rem;"></i>
+                            <div>
+                                <h3 class="h6 mb-1">ADHD</h3>
+                                <p class="small mb-0 text-secondary">Work best with minimal distractions and flexible scheduling</p>
+                            </div>
+                        </div>
+                        
+                        <h3 class="h6 mt-4 mb-2">Workplace Accommodations</h3>
+                        <ul class="small text-secondary">
+                            <li>Adjustable desk and monitor setup</li>
+                            <li>Flexible work hours</li>
+                            <li>Noise-cancelling headphones</li>
+                            <li>Regular short breaks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h2 class="h5 mb-0">Contact Information</h2>
+                        <span class="edit-icon"><i class="fas fa-edit"></i></span>
+                    </div>
+                    <div class="card-body">
+                        <div class="contact-item">
+                            <i class="fa fa-envelope"></i>
+                            <p>alex.morgan@example.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa fa-phone"></i>
+                            <p>(555) 123-4567</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa fa-map-marker-alt"></i>
+                            <p>San Francisco, California</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa fa-linkedin"></i>
+                            <p>linkedin.com/in/alexmorgan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Projects -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h2 class="h5 mb-0">Featured Projects</h2>
+                        <span class="edit-icon"><i class="fas fa-edit"></i></span>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3 pb-3 border-bottom">
+                            <h3 class="h6 mb-1">AccessiBank: Accessible Banking Redesign</h3>
+                            <p class="small text-secondary mb-2">UX/UI Design, Accessibility</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
+                        </div>
+                        <div class="mb-3 pb-3 border-bottom">
+                            <h3 class="h6 mb-1">InclusiveTravel: Accessible Travel Platform</h3>
+                            <p class="small text-secondary mb-2">UX Research, UI Design</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
+                        </div>
+                        <div>
+                            <h3 class="h6 mb-1">AccessDesign: Accessibility Design System</h3>
+                            <p class="small text-secondary mb-2">Design Systems, Documentation</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="position-fixed bottom-0 end-0 m-4">
+        <div class="btn-group" role="group" aria-label="Appearance Options">
+            <button type="button" class="btn btn-outline-primary btn-sm" id="light-mode">Light</button>
+            <button type="button" class="btn btn-outline-primary btn-sm" id="dark-mode">Dark</button>
+            <button type="button" class="btn btn-outline-primary btn-sm" id="high-contrast">High Contrast</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('light-mode').addEventListener('click', function() {
+            document.body.classList.remove('dark-mode', 'high-contrast');
+        });
+        
+        document.getElementById('dark-mode').addEventListener('click', function() {
+            document.body.classList.remove('high-contrast');
+            document.body.classList.add('dark-mode');
+        });
+        
+        document.getElementById('high-contrast').addEventListener('click', function() {
+            document.body.classList.remove('dark-mode');
+            document.body.classList.add('high-contrast');
+        });
+    </script>
+</body>
+</html>
