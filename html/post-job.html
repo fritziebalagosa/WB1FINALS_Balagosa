@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a New Job | Include</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #64748b;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --success: #10b981;
+            --info: #0ea5e9;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --bg-light: #ffffff;
+            --text-light: #1e293b;
+            --card-bg-light: #ffffff;
+            --border-light: #e2e8f0;
+        }
+
+        body {
+            background-color: #f9fafb;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Page title */
+        .page-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Form card */
+        .form-card {
+            background-color: var(--bg-light);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-light);
+        }
+
+        /* Form section */
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .form-section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        /* Form controls */
+        .form-label {
+            font-weight: 500;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-light);
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-text {
+            color: var(--secondary);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Rich text editor */
+        .rich-text-editor {
+            border: 1px solid var(--border-light);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            min-height: 200px;
+        }
+
+        .editor-toolbar {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .editor-btn {
+            background: none;
+            border: none;
+            color: var(--secondary);
+            font-size: 0.875rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+        }
+
+        .editor-btn:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--dark);
+        }
+
+        /* Salary range slider */
+        .salary-range {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .salary-value {
+            width: 120px;
+        }
+
+        /* Tags input */
+        .tags-input {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border: 1px solid var(--border-light);
+            border-radius: 0.5rem;
+            min-height: 45px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+        }
+
+        .tag .remove-tag {
+            margin-left: 0.5rem;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+
+        .tags-input input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 0.25rem;
+            min-width: 100px;
+        }
+
+        /* Action buttons */
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .btn-outline-secondary {
+            color: var(--secondary);
+            border-color: var(--border-light);
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: #f1f5f9;
+            color: var(--dark);
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--secondary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .back-link i {
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .form-card {
+                padding: 1.5rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .action-buttons .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4 mb-5">
+        <!-- Back link -->
+        <a href="../html/employer-dashboard.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </a>
+        
+        <!-- Page title -->
+        <h1 class="page-title">Post a New Job</h1>
+        
+        <!-- Job posting form -->
+        <form id="job-posting-form">
+            <!-- Basic Information -->
+            <div class="form-card">
+                <div class="form-section">
+                    <h2 class="form-section-title">Basic Information</h2>
+                    
+                    <div class="mb-3">
+                        <label for="job-title" class="form-label">Job Title*</label>
+                        <input type="text" class="form-control" id="job-title" placeholder="e.g. Senior Software Engineer" required>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="department" class="form-label">Department</label>
+                            <select class="form-select" id="department">
+                                <option selected>Select Department</option>
+                                <option>Engineering</option>
+                                <option>Design</option>
+                                <option>Product</option>
+                                <option>Marketing</option>
+                                <option>Sales</option>
+                                <option>Customer Support</option>
+                                <option>Human Resources</option>
+                                <option>Finance</option>
+                                <option>Operations</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label for="employment-type" class="form-label">Employment Type*</label>
+                            <select class="form-select" id="employment-type" required>
+                                <option selected>Select Type</option>
+                                <option>Full-time</option>
+                                <option>Part-time</option>
+                                <option>Contract</option>
+                                <option>Temporary</option>
+                                <option>Internship</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="location" class="form-label">Location*</label>
+                            <input type="text" class="form-control" id="location" placeholder="e.g. San Francisco, CA" required>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label for="work-model" class="form-label">Work Model</label>
+                            <select class="form-select" id="work-model">
+                                <option selected>Select Work Model</option>
+                                <option>On-site</option>
+                                <option>Remote</option>
+                                <option>Hybrid</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2 class="form-section-title">Compensation</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Salary Range*</label>
+                            <div class="salary-range">
+                                <div class="input-group salary-value">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="min-salary" placeholder="Min" required>
+                                </div>
+                                <span>to</span>
+                                <div class="input-group salary-value">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="max-salary" placeholder="Max" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label for="salary-period" class="form-label">Salary Period</label>
+                            <select class="form-select" id="salary-period">
+                                <option selected>Per Year</option>
+                                <option>Per Month</option>
+                                <option>Per Hour</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="benefits" class="form-label">Benefits</label>
+                        <input type="text" class="form-control" id="benefits" placeholder="e.g. Health insurance, 401(k), Flexible hours">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Job Description -->
+            <div class="form-card">
+                <div class="form-section">
+                    <h2 class="form-section-title">Job Description</h2>
+                    
+                    <div class="mb-3">
+                        <label for="job-summary" class="form-label">Job Summary*</label>
+                        <textarea class="form-control" id="job-summary" rows="3" placeholder="Provide a brief overview of the role" required></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Detailed Description*</label>
+                        <div class="rich-text-editor">
+                            <div class="editor-toolbar">
+                                <button type="button" class="editor-btn"><i class="fas fa-bold"></i></button>
+                                <button type="button" class="editor-btn"><i class="fas fa-italic"></i></button>
+                                <button type="button" class="editor-btn"><i class="fas fa-list-ul"></i></button>
+                                <button type="button" class="editor-btn"><i class="fas fa-list-ol"></i></button>
+                            </div>
+                            <div contenteditable="true" id="job-description" class="editor-content">
+                                <p>Enter the detailed job description here...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Responsibilities*</label>
+                        <div class="rich-text-editor">
+                            <div class="editor-toolbar">
+                                <button type="button" class="editor-btn"><i class="fas fa-bold"></i></button>
+                                <button type="button" class="editor-btn"><i class="fas fa-italic"></i></button>
+                                <button type="button" class="editor-btn"><i class="fas fa-list-ul"></i></button>
+                                <button type="button" class="editor-btn"><i class="fas fa-list-ol"></i></button>
+                            </div>
+                            <div contenteditable="true" id="responsibilities" class="editor-content">
+                                <ul>
+                                    <li>Enter responsibilities here...</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Requirements*</label>
+                        <div class="rich-text-editor">
+                            <div class="editor-toolbar">
+                                <button type="button" class="editor-btn"><i class="fas fa-bold"></i></button>
+                                <button type="button" class="editor-btn"><i class="fas fa-italic"></i></button>
+                                <button type="button" class="editor-btn"><i class="fas fa-list-ul"></i></button>
+                                <button type="button" class="editor-btn"><i class="fas fa-list-ol"></i></button>
+                            </div>
+                            <div contenteditable="true" id="requirements" class="editor-content">
+                                <ul>
+                                    <li>Enter requirements here...</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2 class="form-section-title">Skills & Qualifications</h2>
+                    
+                    <div class="mb-3">
+                        <label for="skills" class="form-label">Required Skills</label>
+                        <div class="tags-input" id="skills-container">
+                            <span class="tag">JavaScript <span class="remove-tag">&times;</span></span>
+                            <span class="tag">React <span class="remove-tag">&times;</span></span>
+                            <input type="text" id="skills-input" placeholder="Add skills...">
+                        </div>
+                        <small class="form-text">Press Enter to add a skill</small>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="education" class="form-label">Education Level</label>
+                            <select class="form-select" id="education">
+                                <option selected>Select Education Level</option>
+                                <option>High School</option>
+                                <option>Associate's Degree</option>
+                                <option>Bachelor's Degree</option>
+                                <option>Master's Degree</option>
+                                <option>Doctorate</option>
+                                <option>No Specific Requirement</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label for="experience" class="form-label">Experience Level</label>
+                            <select class="form-select" id="experience">
+                                <option selected>Select Experience Level</option>
+                                <option>Entry Level (0-1 years)</option>
+                                <option>Junior (1-3 years)</option>
+                                <option>Mid-Level (3-5 years)</option>
+                                <option>Senior (5-8 years)</option>
+                                <option>Lead/Principal (8+ years)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Application Settings -->
+            <div class="form-card">
+                <div class="form-section">
+                    <h2 class="form-section-title">Application Settings</h2>
+                    
+                    <div class="mb-3">
+                        <label for="closing-date" class="form-label">Application Closing Date</label>
+                        <input type="date" class="form-control" id="closing-date">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="resume-required" checked>
+                            <label class="form-check-label" for="resume-required">
+                                Require resume/CV
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cover-letter">
+                            <label class="form-check-label" for="cover-letter">
+                                Require cover letter
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="screening-questions" class="form-label">Screening Questions</label>
+                        <div class="mb-2">
+                            <input type="text" class="form-control" placeholder="Add a screening question...">
+                        </div>
+                        <button type="button" class="btn btn-outline-secondary btn-sm">
+                            <i class="fas fa-plus"></i> Add Question
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Action buttons -->
+            <div class="action-buttons">
+                <button type="button" class="btn btn-outline-secondary" id="save-draft">Save as Draft</button>
+                <div>
+                    <button type="button" class="btn btn-outline-secondary me-2" id="preview-job">Preview</button>
+                    <button type="submit" class="btn btn-primary" id="publish-job">Publish Job</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Handle form submission
+            $('#job-posting-form').on('submit', function(e) {
+                e.preventDefault();
+                alert('Job posted successfully!');
+                window.location.href = 'employer-applications.html';
+            });
+            
+            // Handle save draft button
+            $('#save-draft').on('click', function() {
+                alert('Job saved as draft!');
+            });
+            
+            // Handle preview button
+            $('#preview-job').on('click', function() {
+                alert('Opening job preview...');
+            });
+            
+            // Handle skills input
+            $('#skills-input').on('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const skill = $(this).val().trim();
+                    if (skill) {
+                        $(this).before(`<span class="tag">${skill} <span class="remove-tag">&times;</span></span>`);
+                        $(this).val('');
+                    }
+                }
+            });
+            
+            // Handle removing tags
+            $('#skills-container').on('click', '.remove-tag', function() {
+                $(this).parent().remove();
+            });
+            
+            // Simple rich text editor functionality
+            $('.editor-btn').on('click', function() {
+                document.execCommand('bold', false, null);
+            });
+        });
+    </script>
+</body>
+</html>
