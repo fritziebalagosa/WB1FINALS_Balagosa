@@ -1,0 +1,256 @@
+body {
+    background-color: #f9fafb;
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Page title */
+.page-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+}
+
+/* Application tabs styling */
+.application-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    padding-bottom: 1px;
+}
+
+.application-tab {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    margin-right: 1rem;
+    font-weight: 500;
+    color: var(--secondary);
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.application-tab:hover {
+    color: var(--primary);
+}
+
+.application-tab.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+    font-weight: 600;
+}
+
+.application-tab i {
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.application-tab .badge {
+    margin-left: 0.5rem;
+    background-color: var(--primary);
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+}
+
+/* Application card styling */
+.application-card {
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--bg-light);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    border: 1px solid var(--border-light);
+}
+
+.application-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+.application-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    margin-right: 1.25rem;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.application-details {
+    flex: 1;
+}
+
+.application-details h5 {
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 1.1rem;
+}
+
+.application-details p {
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+    font-size: 0.875rem;
+}
+
+.application-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.application-date {
+    font-size: 0.875rem;
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+}
+
+.application-date i {
+    margin-right: 0.5rem;
+    color: var(--secondary);
+}
+
+.status-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.badge-status {
+    font-weight: 500;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.badge-status i {
+    margin-right: 0.35rem;
+}
+
+.badge-assessment {
+    background-color: var(--primary);
+    color: white;
+}
+
+.badge-email {
+    background-color: var(--success);
+    color: white;
+}
+
+.application-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-left: auto;
+}
+
+.btn-action {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-action i {
+    margin-right: 0.5rem;
+}
+
+.btn-view {
+    background-color: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+}
+
+.btn-view:hover {
+    background-color: rgba(99, 102, 241, 0.2);
+}
+
+.btn-cancel {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.btn-cancel:hover {
+    background-color: rgba(239, 68, 68, 0.2);
+}
+
+/* Empty state styling */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--secondary);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--border-light);
+}
+
+.empty-state h4 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.empty-state p {
+    max-width: 400px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+}
+
+/* Tab content */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .application-card {
+        flex-direction: column;
+    }
+    
+    .application-icon {
+        margin-bottom: 1rem;
+        margin-right: 0;
+    }
+    
+    .application-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .application-actions {
+        margin-left: 0;
+        margin-top: 1rem;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .application-tabs {
+        padding-bottom: 0;
+    }
+}

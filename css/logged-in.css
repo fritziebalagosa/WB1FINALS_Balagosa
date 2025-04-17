@@ -1,0 +1,25 @@
+.user-controls {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.btn-icon {
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    transition: transform 0.2s;
+}
+
+.btn-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .user-controls {
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+}

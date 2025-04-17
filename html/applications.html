@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/landing.css">
+    <link rel="stylesheet" href="../css/applications.css">
+    <link rel="stylesheet" href="../css/logged-in.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+       <!-- Skip to content link for accessibility -->
+   <a href="#main-content" class="skip-to-content">Skip to content</a>
+    
+   <!-- Accessibility Controls -->
+   <div class="accessibility-controls" role="region" aria-label="Accessibility controls">
+       <button class="accessibility-button" id="darkModeToggle" aria-label="Toggle dark mode">
+           <i class="fas fa-moon"></i>
+       </button>
+       <button class="accessibility-button" id="highContrastToggle" aria-label="Toggle high contrast mode">
+           <i class="fas fa-adjust"></i>
+       </button>
+       <button class="accessibility-button" id="increaseFontSize" aria-label="Increase font size">
+           <i class="fas fa-text-height"></i>
+       </button>
+   </div>
+
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg sticky-top">
+       <div class="container">
+           <a class="navbar-brand" href="#">Include</a>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav">
+                   <li class="nav-item">
+                       <a class="nav-link" href="../html/logged-in.html">Home</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="../html/job.html ">Jobs</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="../html/employer.html">For Employers</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="#">Networks</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="#about">About Us</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="#footer">Contact</a>
+                   </li>
+               </ul>
+               <div class="search-container">
+                   <div class="input-group">
+                       <input type="text" class="form-control search-input" placeholder="Search jobs..." aria-label="Search">
+                       <button class="btn" type="button" aria-label="Search">
+                           <i class="fas fa-search"></i>
+                       </button>
+                   </div>
+               </div>
+               
+               <!-- Icons -->
+               <div class="user-controls">
+                   <div class="dropdown">
+                       <button class="btn btn-icon me-2" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="User profile">
+                           <i class="fas fa-user-circle fa-lg" style="color: var(--primary);"></i>
+                       </button>
+                       <div class="dropdown-menu" style="position: absolute; transform: translate(0, 0); margin-top: 5px;">
+                           <a class="dropdown-item" href="../html/profile.html">Profile</a>
+                           <a class="dropdown-item" href="#">My Applications</a>
+                           <a class="dropdown-item" href="#">Settings</a>
+                           <div class="dropdown-divider"></div>
+                           <a class="dropdown-item" href="#">Help Center</a>
+                       </div>
+                   </div>
+                   <button class="btn btn-icon" type="button" aria-label="Log out">
+                       <i class="fas fa-sign-out-alt fa-lg" style="color: var(--secondary);"></i>
+                   </button>
+               </div>
+           </div>
+       </div>
+   </nav>
+   
+   <div class="container mt-4 mb-5">
+    <!-- Page title -->
+    <h1 class="page-title">My Applications</h1>
+    
+    <!-- Application tabs -->
+    <div class="application-tabs">
+        <div class="application-tab active" data-tab="pending">
+            <i class="fas fa-clock"></i> Pending Applications <span class="badge">1</span>
+        </div>
+        <div class="application-tab" data-tab="cancelled">
+            <i class="fas fa-ban"></i> Cancelled Application
+        </div>
+        <div class="application-tab" data-tab="rejected">
+            <i class="fas fa-times-circle"></i> Rejected Applications
+        </div>
+        <div class="application-tab" data-tab="saved">
+            <i class="fas fa-bookmark"></i> Saved Jobs
+        </div>
+    </div>
+    
+    <!-- Tab content -->
+    <div id="pending-content" class="tab-content active">
+        <div class="application-card">
+            <img src="../img/3.webp" alt="Software Developer" class="application-icon">
+            <div class="application-details">
+                <h5>Software Developer</h5>
+                <p>Tech Solutions Inc., Silicon Valley, California, United States</p>
+                
+                <div class="application-meta">
+                    <div class="application-date">
+                        <i class="far fa-calendar-alt"></i> Applied on Apr 26, 2025
+                    </div>
+                    
+                    <div class="status-badges">
+                        <span class="badge-status badge-assessment">
+                            <i class="fas fa-clipboard-check"></i> For Assessment
+                        </span>
+                    </div>
+                    
+                    <div class="application-actions">
+                        <button class="btn-action btn-view">
+                            <i class="fas fa-eye"></i> View Details
+                        </button>
+                        <button class="btn-action btn-cancel">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="cancelled-content" class="tab-content">
+        <div class="empty-state">
+            <i class="far fa-folder-open"></i>
+            <h4>No cancelled applications</h4>
+            <p>You haven't cancelled any applications yet. Cancelled applications will appear here.</p>
+        </div>
+    </div>
+    
+    <div id="rejected-content" class="tab-content">
+        <div class="empty-state">
+            <i class="far fa-times-circle"></i>
+            <h4>No rejected applications</h4>
+            <p>You don't have any rejected applications at the moment. Keep applying!</p>
+        </div>
+    </div>
+    
+    <div id="saved-content" class="tab-content">
+        <div class="empty-state">
+            <i class="far fa-bookmark"></i>
+            <h4>No saved jobs</h4>
+            <p>You haven't saved any jobs yet. Save jobs you're interested in to apply later.</p>
+        </div>
+    </div>
+</div>
+
+<script src="../jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Tab switching
+        $('.application-tab').on('click', function() {
+            const tabId = $(this).data('tab');
+            
+            // Update active tab
+            $('.application-tab').removeClass('active');
+            $(this).addClass('active');
+            
+            // Show corresponding content
+            $('.tab-content').removeClass('active');
+            $(`#${tabId}-content`).addClass('active');
+        });
+        
+        // Handle cancel button click
+        $('.btn-cancel').on('click', function(e) {
+            e.preventDefault();
+            if (confirm('Are you sure you want to cancel this application?')) {
+                alert('Application cancelled successfully!');
+                // Here you would typically make an AJAX call to update the server
+            }
+        });
+        
+        // Handle view details button click
+        $('.btn-view').on('click', function(e) {
+            e.preventDefault();
+            alert('Viewing application details...');
+            // Here you would typically navigate to a details page or show a modal
+        });
+    });
+</script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Accessibility Controls Script -->
+<script src="../js/index.js"></script>
+</body>
+</html>
