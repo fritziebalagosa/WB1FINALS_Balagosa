@@ -31,6 +31,29 @@
             color: var(--text-light);
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
+            font-size: 16px; /* Increased base font size for better readability */
+        }
+
+        /* Accessibility focus styles */
+        a:focus, button:focus, input:focus, select:focus, textarea:focus {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* Skip to content link for keyboard users */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
         }
 
         /* Page title */
@@ -219,6 +242,86 @@
             margin-right: 0.5rem;
         }
 
+        /* Accessibility features */
+        .accessibility-toolbar {
+            background-color: var(--light);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .accessibility-toolbar button {
+            background: none;
+            border: 1px solid var(--border-light);
+            border-radius: 0.25rem;
+            padding: 0.35rem 0.75rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: var(--secondary);
+        }
+
+        .accessibility-toolbar button:hover {
+            background-color: var(--bg-light);
+        }
+
+        .accessibility-toolbar button i {
+            margin-right: 0.5rem;
+        }
+
+        /* Accommodation options */
+        .accommodation-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .accommodation-option {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--border-light);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .accommodation-option:hover {
+            background-color: rgba(99, 102, 241, 0.05);
+        }
+
+        .accommodation-option.selected {
+            background-color: rgba(99, 102, 241, 0.1);
+            border-color: var(--primary);
+        }
+
+        .accommodation-option input {
+            margin-right: 0.5rem;
+        }
+
+        /* Inclusive hiring badge */
+        .inclusive-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .inclusive-badge i {
+            margin-right: 0.5rem;
+            font-size: 1.25rem;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .form-card {
@@ -255,7 +358,7 @@
                     
                     <div class="mb-3">
                         <label for="job-title" class="form-label">Job Title*</label>
-                        <input type="text" class="form-control" id="job-title" placeholder="e.g. Senior Software Engineer" required>
+                        <input type="text" class="form-control" id="job-title" placeholder="e.g. Senior Software Engineer" required aria-required="true">
                     </div>
                     
                     <div class="row">
@@ -277,7 +380,7 @@
                         
                         <div class="col-md-6 mb-3">
                             <label for="employment-type" class="form-label">Employment Type*</label>
-                            <select class="form-select" id="employment-type" required>
+                            <select class="form-select" id="employment-type" required aria-required="true">
                                 <option selected>Select Type</option>
                                 <option>Full-time</option>
                                 <option>Part-time</option>
@@ -291,7 +394,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="location" class="form-label">Location*</label>
-                            <input type="text" class="form-control" id="location" placeholder="e.g. San Francisco, CA" required>
+                            <input type="text" class="form-control" id="location" placeholder="e.g. San Francisco, CA" required aria-required="true">
                         </div>
                         
                         <div class="col-md-6 mb-3">
@@ -301,6 +404,7 @@
                                 <option>On-site</option>
                                 <option>Remote</option>
                                 <option>Hybrid</option>
+                                <option>Flexible (Employee's Choice)</option>
                             </select>
                         </div>
                     </div>
@@ -315,12 +419,12 @@
                             <div class="salary-range">
                                 <div class="input-group salary-value">
                                     <span class="input-group-text">$</span>
-                                    <input type="number" class="form-control" id="min-salary" placeholder="Min" required>
+                                    <input type="number" class="form-control" id="min-salary" placeholder="Min" required aria-required="true">
                                 </div>
                                 <span>to</span>
                                 <div class="input-group salary-value">
                                     <span class="input-group-text">$</span>
-                                    <input type="number" class="form-control" id="max-salary" placeholder="Max" required>
+                                    <input type="number" class="form-control" id="max-salary" placeholder="Max" required aria-required="true">
                                 </div>
                             </div>
                         </div>
@@ -338,6 +442,69 @@
                     <div class="mb-3">
                         <label for="benefits" class="form-label">Benefits</label>
                         <input type="text" class="form-control" id="benefits" placeholder="e.g. Health insurance, 401(k), Flexible hours">
+                        <small class="form-text">Include benefits that support employees with disabilities, such as health insurance with comprehensive coverage, flexible spending accounts, etc.</small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Accessibility & Accommodations -->
+            <div class="form-card">
+                <div class="form-section">
+                    <h2 class="form-section-title">Accessibility & Accommodations</h2>
+                    
+                    <div class="mb-4">
+                        <label class="form-label">Workplace Accommodations Available</label>
+                        <p class="form-text mb-2">Select all accommodations that your company can provide for this position:</p>
+                        
+                        <div class="accommodation-options">
+                            <div class="accommodation-option">
+                                <input type="checkbox" id="remote-work" name="accommodations[]" value="remote-work">
+                                <label for="remote-work">Remote Work</label>
+                            </div>
+                            <div class="accommodation-option">
+                                <input type="checkbox" id="flexible-hours" name="accommodations[]" value="flexible-hours">
+                                <label for="flexible-hours">Flexible Hours</label>
+                            </div>
+                            <div class="accommodation-option">
+                                <input type="checkbox" id="accessible-workspace" name="accommodations[]" value="accessible-workspace">
+                                <label for="accessible-workspace">Accessible Workspace</label>
+                            </div>
+                            <div class="accommodation-option">
+                                <input type="checkbox" id="assistive-tech" name="accommodations[]" value="assistive-tech">
+                                <label for="assistive-tech">Assistive Technology</label>
+                            </div>
+                            <div class="accommodation-option">
+                                <input type="checkbox" id="screen-reader" name="accommodations[]" value="screen-reader">
+                                <label for="screen-reader">Screen Reader Compatible</label>
+                            </div>
+                            <div class="accommodation-option">
+                                <input type="checkbox" id="sign-language" name="accommodations[]" value="sign-language">
+                                <label for="sign-language">Sign Language Interpreter</label>
+                            </div>
+                            <div class="accommodation-option">
+                                <input type="checkbox" id="modified-equipment" name="accommodations[]" value="modified-equipment">
+                                <label for="modified-equipment">Modified Equipment</label>
+                            </div>
+                            <div class="accommodation-option">
+                                <input type="checkbox" id="job-restructuring" name="accommodations[]" value="job-restructuring">
+                                <label for="job-restructuring">Job Restructuring</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="additional-accommodations" class="form-label">Additional Accommodations</label>
+                        <textarea class="form-control" id="additional-accommodations" rows="3" placeholder="Describe any additional accommodations or flexibility options available for this position"></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="inclusive-statement" checked>
+                            <label class="form-check-label" for="inclusive-statement">
+                                Include inclusive hiring statement in job posting
+                            </label>
+                        </div>
+                        <small class="form-text">We encourage applications from people of all abilities and backgrounds, including those with disabilities.</small>
                     </div>
                 </div>
             </div>
@@ -349,56 +516,60 @@
                     
                     <div class="mb-3">
                         <label for="job-summary" class="form-label">Job Summary*</label>
-                        <textarea class="form-control" id="job-summary" rows="3" placeholder="Provide a brief overview of the role" required></textarea>
+                        <textarea class="form-control" id="job-summary" rows="3" placeholder="Provide a brief overview of the role" required aria-required="true"></textarea>
+                        <small class="form-text">Use clear, straightforward language and avoid jargon that might exclude qualified candidates.</small>
                     </div>
                     
                     <div class="mb-3">
                         <label class="form-label">Detailed Description*</label>
                         <div class="rich-text-editor">
                             <div class="editor-toolbar">
-                                <button type="button" class="editor-btn"><i class="fas fa-bold"></i></button>
-                                <button type="button" class="editor-btn"><i class="fas fa-italic"></i></button>
-                                <button type="button" class="editor-btn"><i class="fas fa-list-ul"></i></button>
-                                <button type="button" class="editor-btn"><i class="fas fa-list-ol"></i></button>
+                                <button type="button" class="editor-btn" aria-label="Bold text"><i class="fas fa-bold" aria-hidden="true"></i></button>
+                                <button type="button" class="editor-btn" aria-label="Italic text"><i class="fas fa-italic" aria-hidden="true"></i></button>
+                                <button type="button" class="editor-btn" aria-label="Bulleted list"><i class="fas fa-list-ul" aria-hidden="true"></i></button>
+                                <button type="button" class="editor-btn" aria-label="Numbered list"><i class="fas fa-list-ol" aria-hidden="true"></i></button>
                             </div>
-                            <div contenteditable="true" id="job-description" class="editor-content">
+                            <div contenteditable="true" id="job-description" class="editor-content" aria-label="Job description editor">
                                 <p>Enter the detailed job description here...</p>
                             </div>
                         </div>
+                        <small class="form-text">Focus on essential job functions and avoid unnecessary physical requirements that could exclude qualified candidates with disabilities.</small>
                     </div>
                     
                     <div class="mb-3">
                         <label class="form-label">Responsibilities*</label>
                         <div class="rich-text-editor">
                             <div class="editor-toolbar">
-                                <button type="button" class="editor-btn"><i class="fas fa-bold"></i></button>
-                                <button type="button" class="editor-btn"><i class="fas fa-italic"></i></button>
-                                <button type="button" class="editor-btn"><i class="fas fa-list-ul"></i></button>
-                                <button type="button" class="editor-btn"><i class="fas fa-list-ol"></i></button>
+                                <button type="button" class="editor-btn" aria-label="Bold text"><i class="fas fa-bold" aria-hidden="true"></i></button>
+                                <button type="button" class="editor-btn" aria-label="Italic text"><i class="fas fa-italic" aria-hidden="true"></i></button>
+                                <button type="button" class="editor-btn" aria-label="Bulleted list"><i class="fas fa-list-ul" aria-hidden="true"></i></button>
+                                <button type="button" class="editor-btn" aria-label="Numbered list"><i class="fas fa-list-ol" aria-hidden="true"></i></button>
                             </div>
-                            <div contenteditable="true" id="responsibilities" class="editor-content">
+                            <div contenteditable="true" id="responsibilities" class="editor-content" aria-label="Job responsibilities editor">
                                 <ul>
                                     <li>Enter responsibilities here...</li>
                                 </ul>
                             </div>
                         </div>
+                        <small class="form-text">Focus on what needs to be accomplished rather than how it must be done.</small>
                     </div>
                     
                     <div class="mb-3">
                         <label class="form-label">Requirements*</label>
                         <div class="rich-text-editor">
                             <div class="editor-toolbar">
-                                <button type="button" class="editor-btn"><i class="fas fa-bold"></i></button>
-                                <button type="button" class="editor-btn"><i class="fas fa-italic"></i></button>
-                                <button type="button" class="editor-btn"><i class="fas fa-list-ul"></i></button>
-                                <button type="button" class="editor-btn"><i class="fas fa-list-ol"></i></button>
+                                <button type="button" class="editor-btn" aria-label="Bold text"><i class="fas fa-bold" aria-hidden="true"></i></button>
+                                <button type="button" class="editor-btn" aria-label="Italic text"><i class="fas fa-italic" aria-hidden="true"></i></button>
+                                <button type="button" class="editor-btn" aria-label="Bulleted list"><i class="fas fa-list-ul" aria-hidden="true"></i></button>
+                                <button type="button" class="editor-btn" aria-label="Numbered list"><i class="fas fa-list-ol" aria-hidden="true"></i></button>
                             </div>
-                            <div contenteditable="true" id="requirements" class="editor-content">
+                            <div contenteditable="true" id="requirements" class="editor-content" aria-label="Job requirements editor">
                                 <ul>
                                     <li>Enter requirements here...</li>
                                 </ul>
                             </div>
                         </div>
+                        <small class="form-text">List only essential qualifications and consider equivalent experience in place of formal education when possible.</small>
                     </div>
                 </div>
                 
@@ -412,21 +583,21 @@
                             <span class="tag">React <span class="remove-tag">&times;</span></span>
                             <input type="text" id="skills-input" placeholder="Add skills...">
                         </div>
-                        <small class="form-text">Press Enter to add a skill</small>
+                        <small class="form-text">Press Enter to add a skill. Focus on essential skills only.</small>
                     </div>
                     
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="education" class="form-label">Education Level</label>
                             <select class="form-select" id="education">
-                                <option selected>Select Education Level</option>
+                                <option selected>No Specific Requirement</option>
                                 <option>High School</option>
                                 <option>Associate's Degree</option>
                                 <option>Bachelor's Degree</option>
                                 <option>Master's Degree</option>
                                 <option>Doctorate</option>
-                                <option>No Specific Requirement</option>
                             </select>
+                            <small class="form-text">Consider if formal education is truly necessary for job performance.</small>
                         </div>
                         
                         <div class="col-md-6 mb-3">
@@ -473,13 +644,34 @@
                     </div>
                     
                     <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="accommodation-question" checked>
+                            <label class="form-check-label" for="accommodation-question">
+                                Include accommodation question in application
+                            </label>
+                        </div>
+                        <small class="form-text">Asks applicants if they require accommodations for the interview process.</small>
+                    </div>
+                    
+                    <div class="mb-3">
                         <label for="screening-questions" class="form-label">Screening Questions</label>
                         <div class="mb-2">
                             <input type="text" class="form-control" placeholder="Add a screening question...">
                         </div>
                         <button type="button" class="btn btn-outline-secondary btn-sm">
-                            <i class="fas fa-plus"></i> Add Question
+                            <i class="fas fa-plus" aria-hidden="true"></i> Add Question
                         </button>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="application-format" class="form-label">Application Format Options</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="alternative-formats" checked>
+                            <label class="form-check-label" for="alternative-formats">
+                                Allow alternative application formats (video, audio, etc.)
+                            </label>
+                        </div>
+                        <small class="form-text">Enables candidates to submit applications in formats that accommodate their needs.</small>
                     </div>
                 </div>
             </div>
@@ -489,19 +681,19 @@
                 <button type="button" class="btn btn-outline-secondary" id="save-draft">Save as Draft</button>
                 <div>
                     <button type="button" class="btn btn-outline-secondary me-2" id="preview-job">Preview</button>
-                    <button type="submit" class="btn btn-primary" id="publish-job">Publish Job</button>
+                    <button type="submit" class="btn btn-primary" id="publish-job">Publish Inclusive Job</button>
                 </div>
             </div>
         </form>
     </div>
 
-    <script src="../jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
             // Handle form submission
             $('#job-posting-form').on('submit', function(e) {
                 e.preventDefault();
-                alert('Job posted successfully!');
+                alert('Inclusive job posted successfully!');
                 window.location.href = 'employer-applications.html';
             });
             
@@ -532,9 +724,11 @@
                 $(this).parent().remove();
             });
             
-            // Simple rich text editor functionality
-            $('.editor-btn').on('click', function() {
-                document.execCommand('bold', false, null);
+            // Handle accommodation options
+            $('.accommodation-option').on('click', function() {
+                $(this).toggleClass('selected');
+                const checkbox = $(this).find('input[type="checkbox"]');
+                checkbox.prop('checked', !checkbox.prop('checked'));
             });
         });
     </script>
