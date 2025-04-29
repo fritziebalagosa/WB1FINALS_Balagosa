@@ -59,41 +59,21 @@
     transition: all 0.3s;
   }
   
-  .card {
-    border: none;
-    border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    background-color: var(--card-bg-light);
-    border: 1px solid var(--border-light);
-    margin-bottom: 20px;
-  }
-  
-  .stat-card {
-    padding: 20px;
-    border-radius: 12px;
-    color: white;
-  }
-  
-  .stat-card i {
+  .stats-card {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.stats-card .number {
     font-size: 2rem;
-    opacity: 0.8;
-  }
-  
-  .bg-primary-gradient {
-    background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-  }
-  
-  .bg-success-gradient {
-    background: linear-gradient(45deg, var(--success), #0d9488);
-  }
-  
-  .bg-info-gradient {
-    background: linear-gradient(45deg, var(--info), #0284c7);
-  }
-  
-  .bg-warning-gradient {
-    background: linear-gradient(45deg, var(--warning), #d97706);
-  }
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.stats-card .label {
+    color: var(--secondary);
+    font-size: 0.9rem;
+}
   
   .navbar {
     background-color: var(--bg-light);

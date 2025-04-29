@@ -1,0 +1,237 @@
+        /* Theme application */
+        [data-theme="light"] {
+            --bg: var(--bg-light);
+            --text: var(--text-light);
+            --card-bg: var(--card-bg-light);
+            --border: var(--border-light);
+            --primary-color: var(--primary);
+            --primary-hover: var(--primary-dark);
+        }
+
+        [data-theme="dark"] {
+            --bg: var(--bg-dark);
+            --text: var(--text-dark);
+            --card-bg: var(--card-bg-dark);
+            --border: var(--border-dark);
+            --primary-color: var(--primary-dark-mode);
+            --primary-hover: var(--primary-dark);
+        }
+
+        [data-theme="high-contrast"] {
+            --bg: var(--bg-hc);
+            --text: var(--text-hc);
+            --card-bg: var(--bg-hc);
+            --border: var(--border-hc);
+            --primary-color: var(--primary-hc);
+            --primary-hover: var(--primary-hc);
+        }
+
+        /* Skip to content link */
+        .skip-to-content {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .skip-to-content:focus {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: auto;
+            height: auto;
+            padding: 10px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            z-index: 9999;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .company-card {
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background-color: var(--card-bg);
+            color: var(--text);
+            padding: 1.5rem;
+        }
+
+        .company-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .company-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+        }
+
+        .featured-tag {
+            background-color: var(--accent);
+            color: var(--dark);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 20px;
+            margin-left: 0.5rem;
+            font-weight: normal;
+        }
+
+        .industry-tag {
+            background-color: var(--secondary);
+            color: var(--light);
+            font-weight: normal;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .filter-section {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            position: sticky;
+            top: 20px;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-check-label, .form-label {
+            color: var(--text);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .section-title {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Modal Styles */
+        .modal-content {
+            background-color: var(--card-bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .modal-header, .modal-footer {
+            border-color: var(--border);
+        }
+
+        /* Toast notification */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1060;
+        }
+
+        /* Form controls in dark mode */
+        [data-theme="dark"] .form-control,
+        [data-theme="dark"] .form-select {
+            background-color: var(--card-bg-dark);
+            border-color: var(--border-dark);
+            color: var(--text-dark);
+        }
+
+        [data-theme="dark"] .form-control:focus,
+        [data-theme="dark"] .form-select:focus {
+            background-color: var(--card-bg-dark);
+            color: var(--text-dark);
+        }
+
+        /* Form controls in high contrast mode */
+        [data-theme="high-contrast"] .form-control,
+        [data-theme="high-contrast"] .form-select {
+            background-color: var(--bg-hc);
+            border-color: var(--border-hc);
+            color: var(--text-hc);
+        }
+
+        [data-theme="high-contrast"] .form-control:focus,
+        [data-theme="high-contrast"] .form-select:focus {
+            background-color: var(--bg-hc);
+            color: var(--text-hc);
+        }
+
+        /* Text colors for different themes */
+        [data-theme="dark"] .text-secondary,
+        [data-theme="dark"] .text-muted {
+            color: #a0aec0 !important;
+        }
+
+        [data-theme="high-contrast"] .text-secondary,
+        [data-theme="high-contrast"] .text-muted {
+            color: var(--text-hc) !important;
+        }
+
+        /* Dropdown menu in dark mode */
+        [data-theme="dark"] .dropdown-menu {
+            background-color: var(--card-bg-dark);
+            border-color: var(--border-dark);
+        }
+
+        [data-theme="dark"] .dropdown-item {
+            color: var(--text-dark);
+        }
+
+        [data-theme="dark"] .dropdown-item:hover {
+            background-color: var(--border-dark);
+        }
+
+        /* Dropdown menu in high contrast mode */
+        [data-theme="high-contrast"] .dropdown-menu {
+            background-color: var(--bg-hc);
+            border-color: var(--border-hc);
+        }
+
+        [data-theme="high-contrast"] .dropdown-item {
+            color: var(--text-hc);
+        }
+
+        [data-theme="high-contrast"] .dropdown-item:hover {
+            background-color: var(--primary-hc);
+            color: var(--bg-hc);
+        }
+
+

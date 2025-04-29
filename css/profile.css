@@ -14,35 +14,11 @@ body.high-contrast {
     color: var(--text-hc);
 }
 
-.navbar {
-    background-color: var(--bg-light);
-    border-bottom: 1px solid var(--border-light);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
 body.dark-mode .navbar {
     background-color: var(--bg-dark);
     border-bottom: 1px solid var(--border-dark);
 }
 
-body.high-contrast .navbar {
-    background-color: var(--bg-hc);
-    border-bottom: 1px solid var(--border-hc);
-}
-
-.navbar-brand {
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-body.dark-mode .navbar-brand,
-body.dark-mode .nav-link {
-    color: var(--text-dark) !important;
-}
-
-body.dark-mode .navbar-toggler-icon {
-    filter: invert(1);
-}
 
 .hero-section {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
@@ -101,7 +77,7 @@ body.high-contrast .card {
 body.dark-mode .btn-primary {
     background-color: var(--primary-dark-mode);
     border-color: var(--primary-dark-mode);
-    color: var(--bg-dark); /* Ensure text is visible */
+    color: white; /* Changed from var(--bg-dark) to white for better visibility */
 }
 
 body.dark-mode .btn-primary:hover {
@@ -133,7 +109,7 @@ body.dark-mode .btn-outline-primary {
 
 body.dark-mode .btn-outline-primary:hover {
     background-color: var(--primary-dark-mode);
-    color: var(--bg-dark);
+    color: white; /* Changed from var(--bg-dark) to white for better visibility */
 }
 
 body.dark-mode .btn-outline-danger {
@@ -143,7 +119,7 @@ body.dark-mode .btn-outline-danger {
 
 body.dark-mode .btn-outline-danger:hover {
     background-color: #f87171;
-    color: var(--bg-dark);
+    color: white; /* Changed from var(--bg-dark) to white for better visibility */
 }
 
 body.high-contrast .btn-outline-primary {
@@ -212,7 +188,7 @@ body.high-contrast .profile-avatar {
 
 body.dark-mode .skill-badge {
     background-color: var(--primary-dark-mode);
-    color: var(--bg-dark);
+    color: white; /* Changed from var(--bg-dark) to white for better visibility */
 }
 
 body.high-contrast .skill-badge {
@@ -365,7 +341,7 @@ body.high-contrast .edit-icon:hover {
 }
 
 body.dark-mode .text-muted {
-    color: #94a3b8 !important;
+    color: #a3b8cc !important; /* Made lighter for better visibility */
 }
 
 body.dark-mode .form-control {
@@ -375,7 +351,7 @@ body.dark-mode .form-control {
 }
 
 body.dark-mode .form-control::placeholder {
-    color: #6b7280;
+    color: #9ca3af; /* Made lighter for better visibility */
 }
 
 body.dark-mode footer {
@@ -387,12 +363,12 @@ body.dark-mode footer {
 
 /* Links */
 body.dark-mode a {
-    color: var(--primary-dark-mode);
+    color: #93c5fd; /* Changed to a lighter blue for better visibility */
     transition: color 0.3s ease;
 }
 
 body.dark-mode a:hover {
-    color: var(--primary);
+    color: #bfdbfe; /* Even lighter on hover */
 }
 
 /* Modal and dropdown backgrounds */
@@ -459,20 +435,20 @@ body.dark-mode h6 {
 
 /* Fix for badges */
 body.dark-mode .badge {
-    background-color: #2d2d2d;
-    color: var(--text-dark);
+    background-color: #3d3d3d; /* Darker background for better contrast */
+    color: #e2e8f0; /* Lighter text for better visibility */
 }
 
 body.dark-mode .badge-primary {
     background-color: var(--primary-dark-mode);
-    color: var(--bg-dark);
+    color: white; /* Changed from var(--bg-dark) to white for better visibility */
 }
 
 /* Fix for alerts */
 body.dark-mode .alert {
     background-color: #2d2d2d;
     border-color: var(--border-dark);
-    color: var(--text-dark);
+    color: #e2e8f0; /* Lighter text for better visibility */
 }
 
 /* Fix for code and pre */
@@ -485,5 +461,5 @@ body.dark-mode pre {
 /* Fix for blockquote */
 body.dark-mode blockquote {
     border-left-color: var(--primary-dark-mode);
-    color: var(--text-dark);
+    color: #e2e8f0; /* Lighter text for better visibility */
 }

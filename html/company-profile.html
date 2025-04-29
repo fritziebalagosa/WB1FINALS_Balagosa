@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Include - Connecting Talent with Inclusive Employers</title>
+    <link rel="stylesheet" href="../css/landing.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/logged-in.css">
+    <link rel="stylesheet" href="../css/employer-dashboard.css">
+    <link rel="stylesheet" href="../css/comp-profile.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+   <!-- Skip to content link for accessibility -->
+   <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg sticky-top">
+       <div class="container">
+           <a class="navbar-brand" href="#">Include</a>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav">
+                   <li class="nav-item">
+                       <a class="nav-link" href="../html/logged-in.html">Home</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="../html/job.html ">Jobs</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="../html/employer.html">For Employers</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="#">Networks</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="#about">About Us</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="#footer">Contact</a>
+                   </li>
+               </ul>
+               <div class="search-container">
+                   <div class="input-group">
+                       <input type="text" class="form-control search-input" placeholder="Search jobs..." aria-label="Search">
+                       <button class="btn" type="button" aria-label="Search">
+                           <i class="fas fa-search"></i>
+                       </button>
+                   </div>
+               </div>
+               
+               <!-- Icons -->
+               <div class="user-controls">
+                <div class="dropdown">
+                    <button class="btn btn-icon me-2" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="User profile">
+                        <i class="fas fa-user-circle fa-lg" style="color: var(--primary);"></i>
+                    </button>
+                    <div class="dropdown-menu" style="position: absolute; transform: translate(0, 0); margin-top: 5px;">
+                        <a class="dropdown-item" href="../html/employer-dashboard.html">Dashboard</a>
+                        <a class="dropdown-item" href="#">Company Profile</a>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Help Center</a>
+                    </div>
+                </div>
+                <button class="btn btn-icon" type="button" aria-label="Log out">
+                    <i class="fas fa-sign-out-alt fa-lg" style="color: var(--secondary);"></i>
+                </button>
+            </div>
+           </div>
+       </div>
+   </nav>
+
+       <!-- Profile Header -->
+       <section class="profile-header">
+        <div class="profile-header-overlay"></div>
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="d-flex align-items-center mb-4">
+                        <img src="../img/3.webp" alt="Company Logo" class="company-logo me-4">
+                        <div>
+                            <h1 class="mb-2">TechInnovate Solutions</h1>
+                            <p class="mb-3">Technology & Software Development | San Francisco, CA</p>
+                            <div>
+                                <span class="badge-inclusion">
+                                    <i class="fas fa-check-circle me-1"></i> Inclusive Employer
+                                </span>
+                                <span class="badge-inclusion">
+                                    <i class="fas fa-certificate me-1"></i> Accessibility Certified
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="#jobs" class="btn btn-light btn-lg me-2">View Jobs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="py-5">
+        <div class="container">
+            <!-- About Section -->
+            <section id="about" class="mb-5">
+                <h2 class="section-title">About TechInnovate Solutions</h2>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <p>TechInnovate Solutions is a leading technology company specializing in software development, cloud solutions, and digital transformation. Founded in 2010, we have grown to become a team of over 500 talented professionals dedicated to creating innovative solutions that drive business success.</p>
+                                
+                                <p>At TechInnovate, we believe that diversity drives innovation. We are committed to building an inclusive workplace where everyone can thrive, contribute their unique perspectives, and reach their full potential. Our inclusive hiring practices and accessible workplace have made us a preferred employer for people with disabilities.</p>
+                                
+                                <p>Our mission is to leverage technology to solve complex business challenges while creating a positive impact on society. We work with clients across various industries, from startups to Fortune 500 companies, helping them navigate the digital landscape and achieve sustainable growth.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header">Company Information</div>
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                    <li class="mb-3">
+                                        <i class="fas fa-building me-2 text-primary"></i>
+                                        <strong>Industry:</strong> Technology, Software Development
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                                        <strong>Headquarters:</strong> San Francisco, CA
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="fas fa-users me-2 text-primary"></i>
+                                        <strong>Company Size:</strong> 501-1000 employees
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="fas fa-globe me-2 text-primary"></i>
+                                        <strong>Website:</strong> <a href="#" class="text-primary">www.techinnovate.com</a>
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="fas fa-calendar-alt me-2 text-primary"></i>
+                                        <strong>Founded:</strong> 2010
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-briefcase me-2 text-primary"></i>
+                                        <strong>Specialties:</strong> Software Development, Cloud Solutions, AI, Machine Learning, Mobile Applications
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Connect with Us</div>
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <a href="#" class="social-icon">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Jobs Section -->
+            <section id="jobs" class="mb-5">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="section-title mb-0">Open Positions</h2>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="jobFilterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Filter By
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="jobFilterDropdown">
+                            <li><a class="dropdown-item" href="#">All Departments</a></li>
+                            <li><a class="dropdown-item" href="#">Engineering</a></li>
+                            <li><a class="dropdown-item" href="#">Design</a></li>
+                            <li><a class="dropdown-item" href="#">Marketing</a></li>
+                            <li><a class="dropdown-item" href="#">Sales</a></li>
+                            <li><a class="dropdown-item" href="#">Customer Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card job-card">
+                            <div class="card-body">
+                                <h5 class="job-title">Senior Software Engineer</h5>
+                                <p class="job-location"><i class="fas fa-map-marker-alt me-2"></i>San Francisco, CA (Hybrid)</p>
+                                <div class="mb-3">
+                                    <span class="job-tag">Full-time</span>
+                                    <span class="job-tag">Engineering</span>
+                                    <span class="job-tag">Remote Option</span>
+                                </div>
+                                <p class="mb-4">Join our engineering team to build innovative solutions using cutting-edge technologies. We're looking for experienced engineers who are passionate about creating accessible software.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted small">Posted 2 days ago</span>
+                                    <a href="#" class="btn btn-outline-primary">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card job-card">
+                            <div class="card-body">
+                                <h5 class="job-title">UX/UI Designer</h5>
+                                <p class="job-location"><i class="fas fa-map-marker-alt me-2"></i>San Francisco, CA (On-site)</p>
+                                <div class="mb-3">
+                                    <span class="job-tag">Full-time</span>
+                                    <span class="job-tag">Design</span>
+                                    <span class="job-tag">Accessibility</span>
+                                </div>
+                                <p class="mb-4">We're seeking a talented UX/UI Designer with experience in creating accessible interfaces. You'll work closely with our product and engineering teams to design intuitive user experiences.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted small">Posted 1 week ago</span>
+                                    <a href="#" class="btn btn-outline-primary">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card job-card">
+                            <div class="card-body">
+                                <h5 class="job-title">Product Manager</h5>
+                                <p class="job-location"><i class="fas fa-map-marker-alt me-2"></i>Remote (US)</p>
+                                <div class="mb-3">
+                                    <span class="job-tag">Full-time</span>
+                                    <span class="job-tag">Product</span>
+                                    <span class="job-tag">Remote</span>
+                                </div>
+                                <p class="mb-4">Lead the development of our products from conception to launch. We're looking for a product manager who understands the importance of accessibility and inclusive design.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted small">Posted 3 days ago</span>
+                                    <a href="#" class="btn btn-outline-primary">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card job-card">
+                            <div class="card-body">
+                                <h5 class="job-title">Accessibility Specialist</h5>
+                                <p class="job-location"><i class="fas fa-map-marker-alt me-2"></i>San Francisco, CA (Hybrid)</p>
+                                <div class="mb-3">
+                                    <span class="job-tag">Full-time</span>
+                                    <span class="job-tag">Engineering</span>
+                                    <span class="job-tag">Accessibility</span>
+                                </div>
+                                <p class="mb-4">Help us ensure our products are accessible to all users. You'll work across teams to implement and test accessibility features, conduct audits, and provide training.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted small">Posted 5 days ago</span>
+                                    <a href="#" class="btn btn-outline-primary">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card job-card">
+                            <div class="card-body">
+                                <h5 class="job-title">Marketing Specialist</h5>
+                                <p class="job-location"><i class="fas fa-map-marker-alt me-2"></i>Remote (US)</p>
+                                <div class="mb-3">
+                                    <span class="job-tag">Full-time</span>
+                                    <span class="job-tag">Marketing</span>
+                                    <span class="job-tag">Remote</span>
+                                </div>
+                                <p class="mb-4">Join our marketing team to help promote our products and services. We're looking for someone who can create inclusive marketing campaigns that resonate with diverse audiences.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted small">Posted 1 week ago</span>
+                                    <a href="#" class="btn btn-outline-primary">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card job-card">
+                            <div class="card-body">
+                                <h5 class="job-title">Customer Support Representative</h5>
+                                <p class="job-location"><i class="fas fa-map-marker-alt me-2"></i>Remote (US)</p>
+                                <div class="mb-3">
+                                    <span class="job-tag">Full-time</span>
+                                    <span class="job-tag">Customer Support</span>
+                                    <span class="job-tag">Remote</span>
+                                </div>
+                                <p class="mb-4">Provide exceptional support to our customers. We're looking for empathetic individuals who can communicate effectively and help resolve customer issues.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted small">Posted 2 weeks ago</span>
+                                    <a href="#" class="btn btn-outline-primary">Apply Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="#" class="btn btn-primary">View All Jobs</a>
+                </div>
+            </section>
+
+            <!-- Inclusion Section -->
+            <section id="inclusion" class="mb-5">
+                <h2 class="section-title">Our Commitment to Inclusion</h2>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p class="lead">At TechInnovate Solutions, we believe that diversity and inclusion are not just buzzwords but essential components of our success. We are committed to creating an environment where everyone feels welcome, valued, and empowered to contribute their best work.</p>
+                        
+                        <div class="row mt-5">
+                            <div class="col-md-4 mb-4">
+                                <div class="inclusion-icon">
+                                    <i class="fas fa-universal-access"></i>
+                                </div>
+                                <h4>Accessible Workplace</h4>
+                                <p>Our offices are designed to be fully accessible, with features like wheelchair ramps, elevators, adjustable desks, and assistive technologies. We continuously evaluate and improve our physical spaces to ensure they meet the needs of all employees.</p>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="inclusion-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <h4>Inclusive Hiring</h4>
+                                <p>We've implemented inclusive hiring practices to ensure we attract and retain diverse talent. Our job descriptions are written with inclusive language, and our interview process is designed to minimize bias and focus on skills and potential.</p>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="inclusion-icon">
+                                    <i class="fas fa-users-cog"></i>
+                                </div>
+                                <h4>Employee Resource Groups</h4>
+                                <p>We support several employee resource groups, including our Disability Alliance, which provides a platform for employees to share experiences, advocate for change, and educate others about disability inclusion.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-md-4 mb-4">
+                                <div class="inclusion-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h4>Training & Development</h4>
+                                <p>All employees receive regular training on diversity, equity, and inclusion. We also offer specialized training on topics like accessible design, inclusive communication, and disability awareness.</p>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="inclusion-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <h4>Accessible Technology</h4>
+                                <p>We ensure that all internal tools and systems are accessible to employees with disabilities. Our development teams follow WCAG guidelines to create products that are accessible to all users.</p>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="inclusion-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h4>Community Partnerships</h4>
+                                <p>We partner with organizations that support people with disabilities, offering mentorship, internships, and employment opportunities to help bridge the employment gap.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Accessibility Certifications & Awards</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-award fa-2x text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Disability Equality Index</h5>
+                                        <p class="mb-0">Scored 100% on the DEI, recognized as a "Best Place to Work for Disability Inclusion"</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-certificate fa-2x text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h5>W3C Web Accessibility Certification</h5>
+                                        <p class="mb-0">Our website and products meet WCAG 2.1 AA standards</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-trophy fa-2x text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Inclusive Workplace Award</h5>
+                                        <p class="mb-0">Recognized for our commitment to creating an inclusive workplace culture</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-star fa-2x text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Disability Confident Leader</h5>
+                                        <p class="mb-0">Recognized for our exemplary practices in disability inclusion</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+<footer class="footer" id="footer">
+    <div class="container">
+      <div class="row">
+        <!-- Company Info Section -->
+        <div class="col-md-3 footer-column">
+          <h2>Include</h2>
+          <p>Connecting talent with inclusive employers to build a more diverse and accessible workforce.</p>
+          <div class="mt-3">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <!-- Quick Links Section -->
+        <div class="col-md-3 footer-column">
+          <h2>Quick Links</h2>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Browse Jobs</a></li>
+            <li><a href="#">For Employers</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Resources Section -->
+        <div class="col-md-3 footer-column">
+          <h2>Resources</h2>
+          <ul class="footer-links">
+            <li><a href="#">Job Seeker Guide</a></li>
+            <li><a href="#">Employer Resources</a></li>
+            <li><a href="#">Accessibility Tips</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Section (Replacing Newsletter) -->
+        <div class="col-md-3 footer-column">
+          <h2>Contact Us</h2>
+          
+          <div class="contact-item">
+            <div class="d-flex align-items-center">
+              <i class="fas fa-envelope contact-icon"></i>
+              <span class="contact-label">Email Us</span>
+            </div>
+            <a href="mailto:support@include-jobs.com" class="contact-info">support@include-jobs.com</a>
+          </div>
+          
+          <div class="contact-item">
+            <div class="d-flex align-items-center">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <span class="contact-label">Call Us</span>
+            </div>
+            <a href="tel:5551234567" class="contact-info">(555) 123-4567</a>
+          </div>
+          
+          <div class="contact-item">
+            <div class="d-flex align-items-center">
+              <i class="fas fa-map-marker-alt contact-icon"></i>
+              <span class="contact-label">Visit Us</span>
+            </div>
+            <address class="contact-info mb-0">
+              123 Zamboanga, 400<br>
+              Philippines, 12345
+            </address>
+          </div>
+        </div>
+      </div>
+        
+        <div class="row footer-bottom">
+          <div class="col-md-6">
+            <p class="copyright mb-md-0">&copy; 2025 Include. All rights reserved.</p>
+          </div>
+          <div class="col-md-6 text-md-end footer-legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+  </footer>
+  
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

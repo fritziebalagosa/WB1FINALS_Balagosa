@@ -3,401 +3,798 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Applications | Include</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Include - Connecting Talent with Inclusive Employers</title>
+    <link rel="stylesheet" href="../css/landing.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #64748b;
-            --accent: #f59e0b;
-            --light: #f8fafc;
-            --dark: #1e293b;
-            --success: #10b981;
-            --info: #0ea5e9;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --bg-light: #ffffff;
-            --text-light: #1e293b;
-            --card-bg-light: #ffffff;
-            --border-light: #e2e8f0;
-            
-            /* Dark mode variables */
-            --bg-dark: #121212;
-            --text-dark: #f8fafc;
-            --card-bg-dark: #1e1e1e;
-            --border-dark: #2d2d2d;
-            
-            /* High contrast variables */
-            --primary-hc: #0000ff;
-            --bg-hc: #000000;
-            --text-hc: #ffffff;
-            --border-hc: #ffffff;
+        input, select, textarea, button {
+          transition: all 0.3s ease;
         }
-
-        body {
-            background-color: #f9fafb;
-            color: var(--text-light);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+        button:hover {
+          background-color: var(--accent);
+          color: white;
         }
-
-        /* Application tabs styling */
-        .application-tabs {
-            display: flex;
-            border-bottom: 1px solid var(--border-light);
-            margin-bottom: 2rem;
-            overflow-x: auto;
-            padding-bottom: 1px;
-        }
-
-        .application-tab {
-            display: flex;
-            align-items: center;
-            padding: 0.75rem 1.25rem;
-            margin-right: 1rem;
-            font-weight: 500;
-            color: var(--secondary);
-            border-bottom: 3px solid transparent;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.2s ease;
-        }
-
-        .application-tab:hover {
-            color: var(--primary);
-        }
-
-        .application-tab.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
-            font-weight: 600;
-        }
-
-        .application-tab i {
-            margin-right: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .application-tab .badge {
-            margin-left: 0.5rem;
-            background-color: var(--primary);
-            color: white;
-            font-size: 0.7rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 9999px;
-        }
-
-        /* Application card styling */
-        .application-card {
-            display: flex;
-            align-items: flex-start;
-            background-color: var(--bg-light);
-            border-radius: 0.75rem;
-            padding: 1.25rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            transition: all 0.2s ease;
-            border: 1px solid var(--border-light);
-        }
-
-        .application-card:hover {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transform: translateY(-2px);
-        }
-
-        .application-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            margin-right: 1.25rem;
-            object-fit: cover;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .application-details {
-            flex: 1;
-        }
-
-        .application-details h5 {
-            margin-bottom: 0.25rem;
-            font-weight: 600;
-            color: var(--dark);
-            font-size: 1.1rem;
-        }
-
-        .application-details p {
-            margin-bottom: 0.5rem;
-            color: var(--secondary);
-            font-size: 0.875rem;
-        }
-
-        .application-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 0.75rem;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .application-date {
-            font-size: 0.875rem;
-            color: var(--secondary);
-            display: flex;
-            align-items: center;
-        }
-
-        .application-date i {
-            margin-right: 0.5rem;
-            color: var(--secondary);
-        }
-
-        .status-badges {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .badge-status {
-            font-weight: 500;
-            padding: 0.35rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .badge-status i {
-            margin-right: 0.35rem;
-        }
-
-        .badge-assessment {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .badge-email {
-            background-color: var(--success);
-            color: white;
-        }
-
-        .application-actions {
-            display: flex;
-            gap: 0.75rem;
-            margin-left: auto;
-        }
-
-        .btn-action {
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            font-size: 0.875rem;
-            display: inline-flex;
-            align-items: center;
-            transition: all 0.2s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-action i {
-            margin-right: 0.5rem;
-        }
-
-        .btn-view {
-            background-color: rgba(99, 102, 241, 0.1);
-            color: var(--primary);
-        }
-
-        .btn-view:hover {
-            background-color: rgba(99, 102, 241, 0.2);
-        }
-
-        .btn-cancel {
-            background-color: rgba(239, 68, 68, 0.1);
-            color: var(--danger);
-        }
-
-        .btn-cancel:hover {
-            background-color: rgba(239, 68, 68, 0.2);
-        }
-
-        /* Empty state styling */
-        .empty-state {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: var(--secondary);
-        }
-
-        .empty-state i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--border-light);
-        }
-
-        .empty-state h4 {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .empty-state p {
-            max-width: 400px;
-            margin: 0 auto;
-            font-size: 0.9rem;
-        }
-
-        /* Tab content */
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .application-card {
-                flex-direction: column;
-            }
-            
-            .application-icon {
-                margin-bottom: 1rem;
-                margin-right: 0;
-            }
-            
-            .application-meta {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .application-actions {
-                margin-left: 0;
-                margin-top: 1rem;
-                width: 100%;
-                justify-content: space-between;
-            }
-            
-            .application-tabs {
-                padding-bottom: 0;
-            }
-        }
-    </style>
+      </style>
+      
 </head>
 <body>
-    <!-- Main content area - this will be inserted into your existing layout -->
-    <div class="container mt-4 mb-5">
-        <!-- Application tabs -->
-        <div class="application-tabs">
-            <div class="application-tab active" data-tab="pending">
-                <i class="fas fa-clock"></i> Pending Applications <span class="badge">1</span>
-            </div>
-            <div class="application-tab" data-tab="cancelled">
-                <i class="fas fa-ban"></i> Cancelled Application
-            </div>
-            <div class="application-tab" data-tab="rejected">
-                <i class="fas fa-times-circle"></i> Rejected Applications
-            </div>
-            <div class="application-tab" data-tab="saved">
-                <i class="fas fa-bookmark"></i> Saved Jobs
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    
+    <!-- Accessibility Controls -->
+    <div class="accessibility-controls" role="region" aria-label="Accessibility controls">
+        <button class="accessibility-button" id="darkModeToggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+        <button class="accessibility-button" id="highContrastToggle" aria-label="Toggle high contrast mode">
+            <i class="fas fa-adjust"></i>
+        </button>
+        <button class="accessibility-button" id="increaseFontSize" aria-label="Increase font size">
+            <i class="fas fa-text-height"></i>
+        </button>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Include</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/job.html ">Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/employer.html">For Employers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/networks.html">Networks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#footer">Contact</a>
+                    </li>
+                </ul>
+                <div class="search-container">
+                    <div class="input-group">
+                        <input type="text" class="form-control search-input" placeholder="Search jobs..." aria-label="Search">
+                        <button class="btn" type="button" aria-label="Search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+
+                <!-- Auth Buttons -->
+                <div class="auth-buttons">
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#signinModal">Log In</button>
+                    <button class="btn btn-outline-primary me-2" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button>
+                </div>
+                
             </div>
         </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="main-content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h1 class="display-4 fw-bold mb-4">Connecting Talent with Inclusive Employers</h1>
+                    <p class="lead mb-5">Include is a specialized job platform that connects people with disabilities to employers committed to building diverse and inclusive workplaces.</p>
+                    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                        <button type="button" class="btn btn-primary btn-lg">Find Jobs</button>
+                        <button type="button" class="btn btn-secondary btn-lg">Be our partner company</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Why Choose Include?</h2>
+                <p class="lead text-muted">
+                    We're more than just a job board - we're a community dedicated to accessible employment.
+                </p>
+            </div>
         
-        <!-- Tab content -->
-        <div id="pending-content" class="tab-content active">
-            <div class="application-card">
-                <img src="/placeholder.svg?height=60&width=60" alt="Software Developer" class="application-icon">
-                <div class="application-details">
-                    <h5>Software Developer</h5>
-                    <p>Tech Solutions Inc., Silicon Valley, California, United States</p>
-                    
-                    <div class="application-meta">
-                        <div class="application-date">
-                            <i class="far fa-calendar-alt"></i> Applied on Apr 26, 2025
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-4 d-flex">
+                    <div class="card feature-card p-4 text-center w-100 h-100">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <i class="fas fa-universal-access feature-icon"></i>
+                            <h3 class="card-title h4">Accessibility First</h3>
+                            <p class="card-text">
+                                Our platform is designed with accessibility as a priority, ensuring everyone can
+                                navigate and use our services with ease.
+                            </p>
                         </div>
-                        
-                        <div class="status-badges">
-                            <span class="badge-status badge-assessment">
-                                <i class="fas fa-clipboard-check"></i> For Assessment
-                            </span>
-                            <span class="badge-status badge-email">
-                                <i class="fas fa-envelope"></i> Email Sent
-                            </span>
+                    </div>
+                </div>
+            
+                <!-- Card 2 -->
+                <div class="col-md-4 d-flex">
+                    <div class="card feature-card p-4 text-center w-100 h-100">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <i class="fas fa-handshake feature-icon"></i>
+                            <h3 class="card-title h4">Inclusive Employers</h3>
+                            <p class="card-text">
+                                We partner with companies committed to diversity and inclusion, providing
+                                accommodations and supportive work environments.
+                            </p>
                         </div>
-                        
-                        <div class="application-actions">
-                            <button class="btn-action btn-view">
-                                <i class="fas fa-eye"></i> View Details
-                            </button>
-                            <button class="btn-action btn-cancel">
-                                <i class="fas fa-times"></i> Cancel
-                            </button>
+                    </div>
+                </div>
+            
+                <!-- Card 3 -->
+                <div class="col-md-4 d-flex">
+                    <div class="card feature-card p-4 text-center w-100 h-100">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <i class="fas fa-users feature-icon"></i>
+                            <h3 class="card-title h4">Supportive Community</h3>
+                            <p class="card-text">
+                                Join a community of professionals, mentors, and advocates who understand the unique
+                                challenges and strengths of PWDs.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div id="cancelled-content" class="tab-content">
-            <div class="empty-state">
-                <i class="far fa-folder-open"></i>
-                <h4>No cancelled applications</h4>
-                <p>You haven't cancelled any applications yet. Cancelled applications will appear here.</p>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title display-5 fw-bold">How It Works</h2>
+                <p class="section-subtitle">Simple steps to find your next opportunity or perfect candidate</p>
+            </div>
+            
+            <div class="row position-relative">
+                <!-- Vertical divider between columns (visible on lg screens and up) -->
+                <div class="divider d-none d-lg-block"></div>
+                
+                <!-- Job Seekers Column -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h3 class="column-title text-center text-lg-start">For Job Seekers</h3>
+                    
+                    <div class="step-container">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4 class="step-title">Create Your Profile</h4>
+                            <p class="step-description">Sign up and build your profile highlighting your skills, experience, and accommodation needs if applicable.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-container">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4 class="step-title">Browse Inclusive Jobs</h4>
+                            <p class="step-description">Search through our curated list of positions from employers committed to accessibility and inclusion.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-container">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4 class="step-title">Apply with Confidence</h4>
+                            <p class="step-description">Apply directly through our platform, knowing that employers are open to providing necessary accommodations.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Employers Column -->
+                <div class="col-lg-6">
+                    <h3 class="column-title text-center text-lg-start">For Employers</h3>
+                    
+                    <div class="step-container">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4 class="step-title">Join Our Network</h4>
+                            <p class="step-description">Create an employer account and showcase your commitment to diversity and inclusion.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-container">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4 class="step-title">Post Accessible Jobs</h4>
+                            <p class="step-description">List positions with clear information about workplace accessibility and available accommodations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-container">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4 class="step-title">Connect with Talent</h4>
+                            <p class="step-description">Review applications from qualified candidates and build a more diverse, inclusive workforce.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
+
+   <!-- Testimonials Section -->
+<section class="py-5 bg-light">
+  <div class="container py-4">
+      <div class="text-center mb-5">
+          <h2 class="display-5 fw-bold">Success Stories</h2>
+          <p class="lead text-muted">
+              Hear from our community members who found their perfect match
+          </p>
+      </div>
+
+      <div class="row g-4">
+          <!-- Testimonial 1 -->
+          <div class="col-md-4 d-flex">
+              <div class="card testimonial-card p-4 text-center w-100 h-100">
+                  <div class="card-body d-flex flex-column justify-content-center">
+                      <div class="mx-auto mb-4">
+                          <img src="../img/1.webp" alt="Sarah J." class="testimonial-img">
+                      </div>
+                      <h3 class="card-title h5">Sarah J.</h3>
+                      <p class="text-muted mb-3">Software Developer</p>
+                      <p class="card-text">
+                          "Include helped me find a company that values my skills and provides the accommodations I need for my hearing impairment. I'm now thriving in a role I love!"
+                      </p>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Testimonial 2 -->
+          <div class="col-md-4 d-flex">
+              <div class="card testimonial-card p-4 text-center w-100 h-100">
+                  <div class="card-body d-flex flex-column justify-content-center">
+                      <div class="mx-auto mb-4">
+                          <img src="../img/2.webp" alt="Marcus T." class="testimonial-img">
+                      </div>
+                      <h3 class="card-title h5">Marcus T.</h3>
+                      <p class="text-muted mb-3">Marketing Specialist</p>
+                      <p class="card-text">
+                          "As someone with mobility challenges, finding an employer who understood my needs was difficult until I discovered Include. Now I work remotely with a fantastic team!"
+                      </p>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Testimonial 3 -->
+          <div class="col-md-4 d-flex">
+              <div class="card testimonial-card p-4 text-center w-100 h-100">
+                  <div class="card-body d-flex flex-column justify-content-center">
+                      <div class="mx-auto mb-4">
+                          <img src="../img/3.webp" alt="TechInnovate" class="testimonial-img">
+                      </div>
+                      <h3 class="card-title h5">TechInnovate</h3>
+                      <p class="text-muted mb-3">Employer Partner</p>
+                      <p class="card-text">
+                          "Include has transformed our hiring process. We've built a more diverse team and discovered incredible talent we might have missed through traditional recruitment channels."
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Featured Jobs Section -->
+<section class="py-5" id="jobs">
+  <div class="container py-4">
+      <div class="text-center mb-5">
+          <h2 class="display-5 fw-bold">Featured Jobs</h2>
+          <p class="lead text-muted">
+              Discover opportunities with employers committed to inclusion
+          </p>
+      </div>
+
+      <div class="row g-4">
+          <!-- Job Card 1 - Styled like the image -->
+          <div class="col-md-6 col-lg-4 d-flex">
+              <div class="card border rounded w-100 p-3 position-relative">
+                  <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                          <h3 class="h5 fw-bold mb-1">Senior Software Engineer</h3>
+                          <p class="text-dark mb-1">TechCorp Global</p>
+                      </div>
+                  </div>
+                  
+                  <div class="d-flex align-items-center mb-2 mt-2">
+                      <i class="fas fa-map-marker-alt me-2 text-muted"></i>
+                      <span class="text-muted">San Francisco, CA (Remote)</span>
+                  </div>
+                  
+                  <div class="d-flex align-items-center mb-3">
+                      <i class="fas fa-dollar-sign me-2 text-muted"></i>
+                      <span class="text-muted">$120,000 - $150,000</span>
+                  </div>
+                  
+                  <div class="mb-3">
+                      <span class="badge bg-secondary me-1 mb-1">Full-Time</span>
+                      <span class="badge bg-secondary me-1 mb-1">5+ Years Experience</span>
+                      <span class="badge bg-secondary me-1 mb-1">React</span>
+                      <span class="badge bg-secondary me-1 mb-1">Node.js</span>
+                  </div>
+                  
+                  <p class="card-text mb-4">
+                      Join our innovative team to build cutting-edge applications that serve millions of users worldwide. We offer competitive benefits and a flexible work environment.
+                  </p>
+                  
+                  <div class="d-flex mt-auto">
+                      <a href="#" class="btn btn-primary me-2">Apply Now</a>
+                      <button class="btn btn-outline-primary">
+                          <i class="far fa-bookmark"></i> Save
+                      </button>
+                  </div>
+                  
+                  <div class="position-absolute top-0 end-0 m-3">
+                      <span class="badge bg-warning text-dark px-3 py-2 rounded-pill">Featured</span>
+                  </div>
+                  
+                  <div class="position-absolute bottom-0 end-0 m-3">
+                      <small class="text-muted">Posted 2 days ago</small>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Job Card 2 - Styled like the image -->
+          <div class="col-md-6 col-lg-4 d-flex">
+              <div class="card border rounded w-100 p-3">
+                  <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                          <h3 class="h5 fw-bold mb-1">UX/UI Designer</h3>
+                          <p class="text-dark mb-1">AccessDesign Inc.</p>
+                      </div>
+                      <div>
+                          <div class="bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                              <i class="fas fa-palette text-primary"></i>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="d-flex align-items-center mb-2 mt-2">
+                      <i class="fas fa-map-marker-alt me-2 text-muted"></i>
+                      <span class="text-muted">Chicago, IL (Hybrid)</span>
+                  </div>
+                  
+                  <div class="d-flex align-items-center mb-3">
+                      <i class="fas fa-dollar-sign me-2 text-muted"></i>
+                      <span class="text-muted">$90,000 - $110,000</span>
+                  </div>
+                  
+                  <div class="mb-3">
+                      <span class="badge bg-secondary me-1 mb-1">Full-Time</span>
+                      <span class="badge bg-secondary me-1 mb-1">3+ Years Experience</span>
+                      <span class="badge bg-secondary me-1 mb-1">Figma</span>
+                      <span class="badge bg-secondary me-1 mb-1">Accessibility</span>
+                  </div>
+                  
+                  <p class="card-text mb-4">
+                      Design accessible and inclusive user interfaces for our digital products. Experience with WCAG 2.1 standards required.
+                  </p>
+                  
+                  <div class="d-flex mt-auto">
+                      <a href="#" class="btn btn-primary me-2">Apply Now</a>
+                      <button class="btn btn-outline-primary">
+                          <i class="far fa-bookmark"></i> Save
+                      </button>
+                  </div>
+                  
+                  <div class="position-absolute bottom-0 end-0 m-3">
+                      <small class="text-muted">Posted 1 week ago</small>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Job Card 3 - Styled like the image -->
+          <div class="col-md-6 col-lg-4 d-flex">
+              <div class="card border rounded w-100 p-3">
+                  <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                          <h3 class="h5 fw-bold mb-1">Customer Support Specialist</h3>
+                          <p class="text-dark mb-1">GlobalService Inc.</p>
+                      </div>
+                      <div>
+                          <div class="bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                              <i class="fas fa-headset text-primary"></i>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="d-flex align-items-center mb-2 mt-2">
+                      <i class="fas fa-map-marker-alt me-2 text-muted"></i>
+                      <span class="text-muted">Remote (Worldwide)</span>
+                  </div>
+                  
+                  <div class="d-flex align-items-center mb-3">
+                      <i class="fas fa-dollar-sign me-2 text-muted"></i>
+                      <span class="text-muted">$45,000 - $60,000</span>
+                  </div>
+                  
+                  <div class="mb-3">
+                      <span class="badge bg-secondary me-1 mb-1">Part-Time</span>
+                      <span class="badge bg-secondary me-1 mb-1">Entry Level</span>
+                      <span class="badge bg-secondary me-1 mb-1">Assistive Tech</span>
+                  </div>
+                  
+                  <p class="card-text mb-4">
+                      Providing exceptional customer support via email and chat. Screen reader compatible systems available.
+                  </p>
+                  
+                  <div class="d-flex mt-auto">
+                      <a href="#" class="btn btn-primary me-2">Apply Now</a>
+                      <button class="btn btn-outline-primary">
+                          <i class="far fa-bookmark"></i> Save
+                      </button>
+                  </div>
+                  
+                  <div class="position-absolute bottom-0 end-0 m-3">
+                      <small class="text-muted">Posted 3 days ago</small>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <div class="text-center mt-5">
+          <a href="#" class="btn btn-outline-primary btn-lg">View All Jobs</a>
+      </div>
+  </div>
+</section>
+
+<!-- About Us Section -->
+<section class="py-5" id="about">
+  <div class="container py-4">
+      <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+              <img src="../img/abt.jpg" alt="The Include team" class="img-fluid rounded-3 shadow">
+          </div>
+          <div class="col-lg-6 order-lg-1">
+              <h2 class="display-5 fw-bold mb-4">About Include</h2>
+              <p class="lead mb-4">
+                  Include was founded in 2025 with a simple mission: to create equal employment opportunities for people with disabilities by connecting them with inclusive employers.
+              </p>
+              <p class="mb-4">
+                  Our team consists of disability advocates, HR professionals, and tech experts who understand both the challenges faced by people with disabilities in the job market and the benefits of building diverse teams.
+              </p>
+              <p class="mb-4">
+                  We believe that everyone deserves the opportunity to find meaningful work where they can thrive, and that employers benefit immensely from diverse perspectives and experiences.
+              </p>
+              <a href="#" class="btn btn-outline-primary">Learn More About Our Mission</a>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="row">
+      <!-- Company Info Section -->
+      <div class="col-md-3 footer-column">
+        <h2>Include</h2>
+        <p>Connecting talent with inclusive employers to build a more diverse and accessible workforce.</p>
+        <div class="mt-3">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      
+      <!-- Quick Links Section -->
+      <div class="col-md-3 footer-column">
+        <h2>Quick Links</h2>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Browse Jobs</a></li>
+          <li><a href="#">For Employers</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      
+      <!-- Resources Section -->
+      <div class="col-md-3 footer-column">
+        <h2>Resources</h2>
+        <ul class="footer-links">
+          <li><a href="#">Job Seeker Guide</a></li>
+          <li><a href="#">Employer Resources</a></li>
+          <li><a href="#">Accessibility Tips</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      
+      <!-- Contact Section (Replacing Newsletter) -->
+      <div class="col-md-3 footer-column">
+        <h2>Contact Us</h2>
         
-        <div id="rejected-content" class="tab-content">
-            <div class="empty-state">
-                <i class="far fa-times-circle"></i>
-                <h4>No rejected applications</h4>
-                <p>You don't have any rejected applications at the moment. Keep applying!</p>
-            </div>
+        <div class="contact-item">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-envelope contact-icon"></i>
+            <span class="contact-label">Email Us</span>
+          </div>
+          <a href="mailto:support@include-jobs.com" class="contact-info">support@include-jobs.com</a>
         </div>
         
-        <div id="saved-content" class="tab-content">
-            <div class="empty-state">
-                <i class="far fa-bookmark"></i>
-                <h4>No saved jobs</h4>
-                <p>You haven't saved any jobs yet. Save jobs you're interested in to apply later.</p>
+        <div class="contact-item">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-phone-alt contact-icon"></i>
+            <span class="contact-label">Call Us</span>
+          </div>
+          <a href="tel:5551234567" class="contact-info">(555) 123-4567</a>
+        </div>
+        
+        <div class="contact-item">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-map-marker-alt contact-icon"></i>
+            <span class="contact-label">Visit Us</span>
+          </div>
+          <address class="contact-info mb-0">
+            123 Zamboanga, 400<br>
+            Philippines, 12345
+          </address>
+        </div>
+      </div>
+    </div>
+      
+      <div class="row footer-bottom">
+        <div class="col-md-6">
+          <p class="copyright mb-md-0">&copy; 2025 Include. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+</footer>
+
+<!-- LANDING MODALS -->
+
+<!-- Log In Modal -->
+<div class="modal fade" id="signinModal" tabindex="-1" aria-labelledby="signinModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signinModalLabel">Log In to Your Account</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="signinEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="signinEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="signinPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="signinPassword" required>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                    </div>
+                    <div class="d-grid gap-2 col-10 mx-auto">
+                        <button type="submit" class="btn btn-primary" id="clickme">Log In</button>
+                    </div>
+                    <div class="text-center mt-3">
+                        <a href="#" class="text-decoration-none">Forgot password?</a>
+                    </div>
+                </form>
+                <hr class="my-4">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-primary">
+                        <i class="fab fa-google me-2"></i> Continue with Google
+                    </button>
+                    <button class="btn btn-outline-primary">
+                        <i class="fab fa-linkedin-in me-2"></i> Continue with LinkedIn
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <p class="mb-0">Don't have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal">Sign Up</a></p>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Tab switching
-            $('.application-tab').on('click', function() {
-                const tabId = $(this).data('tab');
-                
-                // Update active tab
-                $('.application-tab').removeClass('active');
-                $(this).addClass('active');
-                
-                // Show corresponding content
-                $('.tab-content').removeClass('active');
-                $(`#${tabId}-content`).addClass('active');
-            });
-            
-            // Handle cancel button click
-            $('.btn-cancel').on('click', function(e) {
-                e.preventDefault();
-                if (confirm('Are you sure you want to cancel this application?')) {
-                    alert('Application cancelled successfully!');
-                    // Here you would typically make an AJAX call to update the server
-                }
-            });
-            
-            // Handle view details button click
-            $('.btn-view').on('click', function(e) {
-                e.preventDefault();
-                alert('Viewing application details...');
-                // Here you would typically navigate to a details page or show a modal
-            });
-        });
-    </script>
+
+<!-- Sign Up Modal (Job Seeker / Employer Selection) -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered"> <!-- Added modal-lg here -->
+      <div class="modal-content" style="background-color: var(--card-bg-light); color: var(--text-light); border: 1px solid var(--border-light);">
+        <div class="modal-header" style="background-color: var(--primary); color: white;">
+          <h5 class="modal-title" id="signupModalLabel">Create Your Account</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1);"></button>
+        </div>
+  
+        <div class="modal-body">
+          <div class="mb-3 text-center">
+            <p>I am a:</p>
+            <div class="d-flex justify-content-center gap-3">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="userType" id="jobSeeker" checked>
+                <label class="form-check-label" for="jobSeeker">Job Seeker</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="userType" id="employer">
+                <label class="form-check-label" for="employer">Employer</label>
+              </div>
+            </div>
+          </div>
+  
+          <form id="signupForm">
+            <!-- Job Seeker / Employer Specific Fields -->
+            <div id="jobSeekerForm">
+              <div class="row mb-3">
+                <div class="col">
+                  <label for="firstName" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="firstName" required>
+                </div>
+                <div class="col">
+                  <label for="lastName" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" required>
+                </div>
+              </div>
+  
+              <div class="mb-3">
+                <label for="signupEmail" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="signupEmail" required>
+              </div>
+  
+              <div class="mb-3">
+                <label for="signupPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="signupPassword" required>
+                <div class="form-text">Must be at least 8 characters with a number and symbol.</div>
+              </div>
+  
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" required>
+              </div>
+
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-primary">
+                    <i class="fab fa-google me-2"></i> Continue with Google
+                </button>
+                <button class="btn btn-outline-primary">
+                    <i class="fab fa-linkedin-in me-2"></i> Continue with LinkedIn
+                </button>
+            </div>
+  
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="termsAgree" required>
+                <label class="form-check-label" for="termsAgree">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+              </div>
+            </div>
+  
+            <!-- Employer Registration Fields (Hidden by default) -->
+            <div id="employerForm" style="display: none;">
+              <h6 class="mb-3" style="color: var(--secondary);">Company Information</h6>
+  
+              <div class="mb-3">
+                <label for="companyEmail" class="form-label">Company Email Address <small class="text-muted">(business email preferred, not personal)</small></label>
+                <input type="email" class="form-control" id="companyEmail" placeholder="e.g. hr@company.com" required>
+              </div>
+  
+              <div class="mb-3">
+                <label for="companyPhone" class="form-label">Company Phone Number <small class="text-muted">(optional but good for trust)</small></label>
+                <input type="tel" class="form-control" id="companyPhone" placeholder="e.g. +1 234 567 8900">
+              </div>
+  
+              <div class="mb-3">
+                <label for="companyWebsite" class="form-label">Company Website</label>
+                <input type="url" class="form-control" id="companyWebsite" placeholder="e.g. https://www.company.com" required>
+              </div>
+  
+              <hr class="my-4">
+  
+              <h6 class="mb-3" style="color: var(--secondary);">Contact Person Details</h6>
+  
+              <div class="mb-3">
+                <label for="contactName" class="form-label">Contact Name <small class="text-muted">(e.g., HR Manager, Recruiter)</small></label>
+                <input type="text" class="form-control" id="contactName" placeholder="e.g. Jane Doe" required>
+              </div>
+  
+              <div class="mb-3">
+                <label for="contactEmail" class="form-label">Contact Email <small class="text-muted">(if different from company email)</small></label>
+                <input type="email" class="form-control" id="contactEmail" placeholder="e.g. recruiter@company.com">
+              </div>
+  
+              <div class="mb-3">
+                <label for="contactPhone" class="form-label">Contact Phone Number <small class="text-muted">(optional)</small></label>
+                <input type="tel" class="form-control" id="contactPhone" placeholder="e.g. +1 234 567 8901">
+              </div>
+
+              <div class="mb-3">
+                <label for="businessPermit" class="form-label">Valid ID</label>
+                <input type="file" class="form-control" id="businessPermit" required>
+              </div>
+  
+              <hr class="my-4">
+  
+              <h6 class="mb-3" style="color: var(--secondary);">Proof of Company Registration</h6>
+  
+              <div class="mb-3">
+                <label for="businessPermit" class="form-label">Business Permit / License</label>
+                <input type="file" class="form-control" id="businessPermit" required>
+              </div>
+  
+              <div class="mb-3">
+                <label for="registrationProof" class="form-label">Company Registration Document</label>
+                <input type="file" class="form-control" id="registrationProof" required>
+              </div>
+            </div>
+  
+            <div class="d-grid mt-4">
+              <button type="submit" class="btn" style="background-color: var(--primary-dark); color: white;">Sign Up</button>
+            </div>
+          </form>
+        </div>
+  
+        <div class="modal-footer justify-content-center">
+          <p class="mb-0">Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#signinModal" data-bs-dismiss="modal">Log In</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Accessibility Controls Script -->
+<script src="../js/index.js"></script>
+<script src="../jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+    $("#clickme").on("click", function(e) {
+        e.preventDefault();
+        
+        var username = $("#signinEmail").val();
+        var password = $("#signinPassword").val();
+
+        if (username == "admin" && password == "admin") {
+            window.location.href = "../admin/dashboard.html";
+        } else if (username == "user" && password == "user") {
+            window.location.href = "../html/logged-in.html";
+        } else if (username == "employer" && password == "employer") {
+            window.location.href = "../html/employer-landing.html";
+        } else {
+            alert("Invalid credentials. Please try again.");
+        } 
+    });
+    
+     // Show the relevant form based on radio button selection
+     $('input[name="userType"]').on('change', function(){
+      if($('#employer').prop('checked')) {
+        $('#jobSeekerForm').hide(); // Hide job seeker form
+        $('#employerForm').show();  // Show employer form
+      } else {
+        $('#jobSeekerForm').show(); // Show job seeker form
+        $('#employerForm').hide();  // Hide employer form
+      }
+    });
+    });
+</script>
+
+
+
 </body>
 </html>

@@ -18,7 +18,10 @@
     --bg-dark: #121212;
     --text-dark: #f8fafc;
     --card-bg-dark: #1e1e1e;
+    --card-header-dark: #2a2a2a; /* Added missing variable */
     --border-dark: #2d2d2d;
+    --primary-dark-mode: #818cf8; /* Added missing variable - lighter indigo for dark mode */
+    --secondary-dark-mode: #94a3b8; /* Added missing variable */
     
     /* High contrast variables */
     --primary-hc: #0000ff;
@@ -851,10 +854,7 @@ body.high-contrast .form-control:focus {
     box-shadow: 0 0 0 0.25rem var(--primary-hc);
 }
 
-/* Log in */
-.logIN{
-    background-color: purple
-}
+
 
 
 
