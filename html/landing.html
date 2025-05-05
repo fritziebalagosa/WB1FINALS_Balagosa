@@ -4,19 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Include | Home</title>
+    <link rel="icon" href="../img/logo.jpg" type="image/jpg"/>
     <link rel="stylesheet" href="../css/landing.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        input, select, textarea, button {
-          transition: all 0.3s ease;
-        }
-        button:hover {
-          background-color: var(--accent);
-          color: white;
-        }
-      </style>
+
       
 </head>
 <body>
@@ -612,7 +605,6 @@
     </div>
 </div>
 
-
 <!-- Sign Up Modal (Job Seeker / Employer -->
 <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered"> <!-- Added modal-lg here -->
@@ -638,7 +630,7 @@
           </div>
   
           <form id="signupForm">
-            <!-- Job Seeker / Employer Specific Fields -->
+            <!-- Job Seeker Specific Fields -->
             <div id="jobSeekerForm">
               <div class="row mb-3">
                 <div class="col">
@@ -681,83 +673,7 @@
                 <label class="form-check-label" for="termsAgree">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
               </div>
             </div>
-  
-            <!-- Employer Registration Fields (Hidden by default) -->
-            <div id="employerForm" style="display: none;">
-              <h6 class="mb-3" style="color: var(--secondary);">Company Information</h6>
 
-              <div class="mb-3">
-                <label for="companyEmail" class="form-label">Company Name<small class="text-muted"></label>
-                <input type="email" class="form-control" id="companyEmail" placeholder="e.g. hr@company.com" required>
-              </div>
-  
-              <div class="mb-3">
-                <label for="companyEmail" class="form-label">Company Email Address <small class="text-muted">(business email preferred, not personal)</small></label>
-                <input type="email" class="form-control" id="companyEmail" placeholder="e.g. hr@company.com" required>
-              </div>
-  
-              <div class="mb-3">
-                <label for="companyPhone" class="form-label">Company Phone Number <small class="text-muted">(optional but good for trust)</small></label>
-                <input type="tel" class="form-control" id="companyPhone" placeholder="e.g. +1 234 567 8900">
-              </div>
-
-                                      <div class="mb-3">
-                            <label for="industry" class="form-label">Industry</label>
-                            <select class="form-select" id="industry" required>
-                                <option value="" selected disabled>Select industry</option>
-                                <option value="tech">Technology</option>
-                                <option value="healthcare">Healthcare</option>
-                                <option value="finance">Finance</option>
-                                <option value="education">Education</option>
-                                <option value="retail">Retail</option>
-                                <option value="manufacturing">Manufacturing</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-  
-              <div class="mb-3">
-                <label for="companyWebsite" class="form-label">Company Website</label>
-                <input type="url" class="form-control" id="companyWebsite" placeholder="e.g. https://www.company.com" required>
-              </div>
-  
-              <hr class="my-4">
-  
-              <h6 class="mb-3" style="color: var(--secondary);">Contact Person Details</h6>
-  
-              <div class="mb-3">
-                <label for="contactName" class="form-label">Contact Name <small class="text-muted">(e.g., HR Manager, Recruiter)</small></label>
-                <input type="text" class="form-control" id="contactName" placeholder="e.g. Jane Doe" required>
-              </div>
-  
-              <div class="mb-3">
-                <label for="contactEmail" class="form-label">Contact Email <small class="text-muted">(if different from company email)</small></label>
-                <input type="email" class="form-control" id="contactEmail" placeholder="e.g. recruiter@company.com">
-              </div>
-  
-              <div class="mb-3">
-                <label for="contactPhone" class="form-label">Contact Phone Number <small class="text-muted">(optional)</small></label>
-                <input type="tel" class="form-control" id="contactPhone" placeholder="e.g. +1 234 567 8901">
-              </div>
-
-              <div class="mb-3">
-                <label for="businessPermit" class="form-label">Valid ID</label>
-                <input type="file" class="form-control" id="businessPermit" required>
-              </div>
-  
-              <hr class="my-4">
-  
-              <h6 class="mb-3" style="color: var(--secondary);">Proof of Company Registration</h6>
-  
-              <div class="mb-3">
-                <label for="businessPermit" class="form-label">Business Permit / License</label>
-                <input type="file" class="form-control" id="businessPermit" required>
-              </div>
-  
-              <div class="mb-3">
-                <label for="registrationProof" class="form-label">Company Registration Document</label>
-                <input type="file" class="form-control" id="registrationProof" required>
-              </div>
-            </div>
   
             <div class="d-grid mt-4">
                 <button type="submit" class="btn" style="background-color: var(--primary-dark); color: white;">Sign Up</button>
@@ -770,6 +686,7 @@
       </div>
     </div>
   </div>
+</div>
   
   
 
@@ -781,7 +698,8 @@
 <script src="../js/index.js"></script>
 <script src="../jquery-3.7.1.min.js"></script>
 <script>
-    $(document).ready(function() {
+    // Update the existing script to redirect when employer radio button is clicked
+$(document).ready(function() {
     $("#clickme").on("click", function(e) {
         e.preventDefault();
         
@@ -799,35 +717,30 @@
         } 
     });
     
-     // Show the relevant form based on radio button selection
-     $('input[name="userType"]').on('change', function(){
-      if($('#employer').prop('checked')) {
-        $('#jobSeekerForm').hide(); // Hide job seeker form
-        $('#employerForm').show();  // Show employer form
-      } else {
-        $('#jobSeekerForm').show(); // Show job seeker form
-        $('#employerForm').hide();  // Hide employer form
-      }
+    // Modified code: Redirect to employer application page when employer radio is selected
+    $('#employer').on('click', function() {
+        // Close the current modal
+        $('#signupModal').modal('hide');
+        
+        // Redirect to the employer application page
+        window.location.href = "../html/employer-application.html";
     });
 
-     // When the employer registration form is submitted
-     $('#employerRegistrationForm').on('submit', function (e) {
+    // Keep the job seeker form visible when job seeker radio is selected
+    $('#jobSeeker').on('click', function() {
+        $('#jobSeekerForm').show();
+        $('#employerForm').hide();
+    });
+
+    // When the employer registration form is submitted
+    $('#employerRegistrationForm').on('submit', function (e) {
         e.preventDefault(); // Prevent default form submission
 
         // Hide the form and show the success message
         $('#employerRegistrationForm').hide();
         $('#successMessage').show();
     });
-
-     // When the employer registration form is submitted
-     $('#employerRegistrationForm').on('submit', function (e) {
-        e.preventDefault(); // Prevent default form submission
-
-        // Hide the form and show the success message
-        $('#employerRegistrationForm').hide();
-        $('#successMessage').show();
-    });
-    });
+});
 </script>
 </body>
 </html>

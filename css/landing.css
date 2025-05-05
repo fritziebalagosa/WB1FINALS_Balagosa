@@ -39,6 +39,14 @@ body {
     background-color: var(--bg-light);
 }
 
+input, select, textarea, button {
+    transition: all 0.3s ease;
+  }
+  button:hover {
+    background-color: var(--accent);
+    color: white;
+  }
+
 /* Dark mode - only apply when dark-mode class is present AND high-contrast is not */
 body.dark-mode:not(.high-contrast) {
     background-color: var(--bg-dark);
@@ -376,7 +384,7 @@ body.high-contrast .auth-buttons .btn-primary:hover {
     background-size: 100px 100px;
     pointer-events: none;
 }
-
+    
 body.high-contrast .hero-section::before {
     display: none;
 }
@@ -581,6 +589,154 @@ body.high-contrast .testimonial-img {
 
 .testimonial-card:hover .testimonial-img {
     transform: scale(1.05);
+}
+
+/* Featured Job Cards Styling */
+.card {
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+/* Base styling for job cards */
+.card.border {
+  border-color: var(--border-light) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Badge styling */
+.badge.bg-secondary {
+  background-color: rgba(99, 102, 241, 0.1) !important;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.badge.bg-warning {
+  background-color: #fef3c7 !important;
+  color: #92400e;
+  font-weight: 600;
+}
+
+/* Dark mode adjustments for job cards */
+body.dark-mode:not(.high-contrast) .card.border {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode:not(.high-contrast) .card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode:not(.high-contrast) .card .text-dark,
+body.dark-mode:not(.high-contrast) .card .card-text,
+body.dark-mode:not(.high-contrast) .card h3 {
+  color: var(--text-dark) !important;
+}
+
+body.dark-mode:not(.high-contrast) .card .text-muted {
+  color: #a1a1aa !important;
+}
+
+body.dark-mode:not(.high-contrast) .badge.bg-secondary {
+  background-color: rgba(99, 102, 241, 0.2) !important;
+  color: #a5b4fc;
+}
+
+body.dark-mode:not(.high-contrast) .badge.bg-warning {
+  background-color: rgba(245, 158, 11, 0.2) !important;
+  color: #fbbf24;
+}
+
+body.dark-mode:not(.high-contrast) .btn-outline-primary {
+  border-color: var(--primary-dark-mode);
+  color: var(--primary-dark-mode);
+}
+
+body.dark-mode:not(.high-contrast) .btn-outline-primary:hover {
+  background-color: var(--primary-dark-mode);
+  color: var(--bg-dark);
+}
+
+/* High contrast mode adjustments for job cards */
+body.high-contrast .card.border {
+  background-color: var(--bg-hc);
+  border: 2px solid var(--text-hc) !important;
+  box-shadow: none;
+}
+
+body.high-contrast .card .text-dark,
+body.high-contrast .card .text-muted,
+body.high-contrast .card .card-text,
+body.high-contrast .card h3,
+body.high-contrast .card p {
+  color: var(--text-hc) !important;
+}
+
+body.high-contrast .badge {
+  background-color: var(--primary-hc) !important;
+  color: var(--text-hc) !important;
+  border: 1px solid var(--text-hc);
+}
+
+body.high-contrast .badge.bg-warning {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  border: 1px solid #000000;
+}
+
+/* Improved featured tag */
+.position-absolute.top-0.end-0.m-3 .badge {
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+}
+
+/* Improved job card icons */
+.card .fas {
+  width: 16px;
+  text-align: center;
+}
+
+/* Ensure proper spacing for job details */
+.card .d-flex.align-items-center {
+  margin-bottom: 0.5rem;
+}
+
+/* Make sure buttons have proper contrast */
+body.dark-mode:not(.high-contrast) .card .btn-primary {
+  background-color: var(--primary-dark-mode);
+  border-color: var(--primary-dark-mode);
+  color: white;
+}
+
+/* Ensure proper spacing at the bottom of cards */
+.card .position-absolute.bottom-0.end-0.m-3 {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Ensure the card content doesn't overlap with the positioned elements */
+.card {
+  padding-bottom: 2rem;
+}
+
+/* Make sure the featured badge stands out in all modes */
+body.dark-mode:not(.high-contrast) .badge.bg-warning.text-dark {
+  background-color: #f59e0b !important;
+  color: #1e1e1e !important;
+}
+
+/* Fix for job card icon backgrounds in dark mode */
+body.dark-mode:not(.high-contrast) .card .bg-light {
+  background-color: #2d2d2d !important;
+}
+
+body.high-contrast .card .bg-light {
+  background-color: var(--bg-hc) !important;
+  border: 1px solid var(--text-hc);
 }
 
 /* Accessibility controls */
@@ -853,10 +1009,6 @@ body.high-contrast .form-control:focus {
     border-color: var(--text-hc);
     box-shadow: 0 0 0 0.25rem var(--primary-hc);
 }
-
-
-
-
 
 /* Responsive Adjustments */
 @media (max-width: 991.98px) {

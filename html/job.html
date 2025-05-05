@@ -6,6 +6,7 @@
     <title>Include | Jobs</title>
     <link rel="stylesheet" href="../css/landing.css">
     <link rel="stylesheet" href="../css/job.css">
+    <link rel="icon" href="../img/logo.jpg" type="image/jpg"
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -502,126 +503,7 @@
         </div>
     </div>
 
-    <!-- Log In Modal -->
-    <div class="modal fade" id="signinModal" tabindex="-1" aria-labelledby="signinModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="signinModalLabel">Log In to Your Account</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="signinEmail" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="signinEmail" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="signinPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="signinPassword" required>
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="rememberMe">
-                            <label class="form-check-label" for="rememberMe">Remember me</label>
-                        </div>
-                        <div class="d-grid gap-2 col-10 mx-auto">
-                            <button type="submit" class="btn btn-primary">Log In</button>
-                        </div>
-                        <div class="text-center mt-3">
-                            <a href="#" class="text-decoration-none">Forgot password?</a>
-                        </div>
-                    </form>
-                    <hr class="my-4">
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-outline-primary">
-                            <i class="fab fa-google me-2"></i> Continue with Google
-                        </button>
-                        <button class="btn btn-outline-primary">
-                            <i class="fab fa-linkedin-in me-2"></i> Continue with LinkedIn
-                        </button>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <p class="mb-0">Don't have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal">Sign Up</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
   
-    <!-- Sign Up Modal -->
-    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="signupModalLabel">Create Your Account</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <p class="text-center">I am a:</p>
-                        <div class="d-flex justify-content-center gap-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="userType" id="jobSeeker" checked>
-                                <label class="form-check-label" for="jobSeeker">
-                                    Job Seeker
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="userType" id="employer">
-                                <label class="form-check-label" for="employer">
-                                    Employer
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <form>
-                        <div class="row mb-3">
-                            <div class="col">
-                                <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="firstName" required>
-                            </div>
-                            <div class="col">
-                                <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="signupEmail" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="signupEmail" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="signupPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="signupPassword" required>
-                            <div class="form-text">Must be at least 8 characters with a number and symbol.</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="confirmPassword" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirmPassword" required>
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="termsAgree" required>
-                            <label class="form-check-label" for="termsAgree">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
-                        </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Sign Up</button>
-                        </div>
-                    </form>
-                    <hr class="my-4">
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-outline-primary">
-                            <i class="fab fa-google me-2"></i> Continue with Google
-                        </button>
-                        <button class="btn btn-outline-primary">
-                            <i class="fab fa-linkedin-in me-2"></i> Continue with LinkedIn
-                        </button>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <p class="mb-0">Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#signinModal" data-bs-dismiss="modal">Log In</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -631,82 +513,7 @@
     <!-- Custom JavaScript -->
     <script>
         $(document).ready(function() {
-            // Theme management
-            const htmlElement = document.documentElement;
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            const savedFontSize = localStorage.getItem('fontSize') || 'medium';
-            
-            // Set initial theme and font size
-            setTheme(savedTheme);
-            setFontSize(savedFontSize);
-            
-            // Dark mode toggle
-            $('#darkModeToggle').on('click', function() {
-                const currentTheme = htmlElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                setTheme(newTheme);
-                localStorage.setItem('theme', newTheme);
-            });
-            
-            // High contrast toggle
-            $('#highContrastToggle').on('click', function() {
-                const currentTheme = htmlElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'high-contrast' ? 'light' : 'high-contrast';
-                setTheme(newTheme);
-                localStorage.setItem('theme', newTheme);
-            });
-            
-            // Font size toggle
-            $('#increaseFontSize').on('click', function() {
-                const currentSize = htmlElement.getAttribute('data-font-size') || 'medium';
-                let newSize;
-                
-                switch(currentSize) {
-                    case 'medium':
-                        newSize = 'large';
-                        break;
-                    case 'large':
-                        newSize = 'x-large';
-                        break;
-                    case 'x-large':
-                        newSize = 'medium';
-                        break;
-                    default:
-                        newSize = 'medium';
-                }
-                
-                setFontSize(newSize);
-                localStorage.setItem('fontSize', newSize);
-            });
-            
-            function setTheme(theme) {
-                htmlElement.setAttribute('data-theme', theme);
-                
-                // Update button states
-                if (theme === 'dark') {
-                    $('#darkModeToggle').addClass('active');
-                    $('#highContrastToggle').removeClass('active');
-                } else if (theme === 'high-contrast') {
-                    $('#highContrastToggle').addClass('active');
-                    $('#darkModeToggle').removeClass('active');
-                } else {
-                    $('#darkModeToggle').removeClass('active');
-                    $('#highContrastToggle').removeClass('active');
-                }
-            }
-            
-            function setFontSize(size) {
-                htmlElement.setAttribute('data-font-size', size);
-                
-                // Update button state
-                if (size !== 'medium') {
-                    $('#increaseFontSize').addClass('active');
-                } else {
-                    $('#increaseFontSize').removeClass('active');
-                }
-            }
-            
-            // Job data (in a real application, this would come from a database)
+            // Job data 
             const jobData = {
                 1: {
                     title: "Senior Software Engineer",

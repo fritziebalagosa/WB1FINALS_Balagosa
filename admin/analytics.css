@@ -1,0 +1,112 @@
+/* analytics.css */
+
+/* Stats Cards */
+.stats-card {
+    text-align: center;
+    padding: 1.5rem;
+  }
+  
+  .stats-card .number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary);
+  }
+  
+  .stats-card .label {
+    color: var(--secondary);
+    font-size: 0.9rem;
+  }
+  
+  /* Chart Containers */
+  .chart-container {
+    height: 300px;
+    position: relative;
+  }
+  
+  /* Chart Legends */
+  .chart-legend {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 5px;
+  }
+  
+  .legend-line {
+    width: 30px;
+    height: 3px;
+    margin-right: 5px;
+  }
+  
+  .legend-label {
+    font-size: 0.875rem;
+    color: var(--secondary);
+  }
+  
+  /* Chart Colors */
+  .color-technology {
+    background-color: rgba(99, 102, 241, 1);
+  }
+  
+  .color-healthcare {
+    background-color: rgba(16, 185, 129, 1);
+  }
+  
+  .color-finance {
+    background-color: rgba(245, 158, 11, 1);
+  }
+  
+  .color-education {
+    background-color: rgba(14, 165, 233, 1);
+  }
+  
+  .color-customer-service {
+    background-color: rgba(100, 116, 139, 1);
+  }
+  
+  .color-job-seekers {
+    background-color: rgba(99, 102, 241, 1);
+  }
+  
+  .color-employers {
+    background-color: rgba(16, 185, 129, 1);
+  }
+  
+  /* Card Header */
+  .card-header.analytics-header {
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .card-header.analytics-header h6 {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .chart-legend {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .legend-item {
+      margin-bottom: 0.5rem;
+    }
+  }

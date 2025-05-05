@@ -1,0 +1,75 @@
+/* Direct styling for the exact HTML structure provided */
+.py-5.bg-primary.text-white {
+    background-color: var(--primary) !important; /* Override Bootstrap's bg-primary */
+    color: var(--light) !important; /* Ensure text is white */
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  
+  /* Heading styles */
+  .py-5.bg-primary.text-white h2.fw-bold {
+    font-weight: 700 !important;
+    margin-bottom: 1.5rem !important;
+    font-size: 2.25rem;
+  }
+  
+  /* Lead paragraph */
+  .py-5.bg-primary.text-white p.lead {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Button styling */
+  .py-5.bg-primary.text-white .btn-outline-primary {
+    color: var(--light) !important;
+    border: 2px solid var(--light) !important;
+    background-color: transparent !important;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .py-5.bg-primary.text-white .btn-outline-primary:hover {
+    background-color: var(--light) !important;
+    color: var(--primary) !important;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 576px) {
+    .py-5.bg-primary.text-white h2.fw-bold {
+      font-size: 1.75rem;
+    }
+    
+    .py-5.bg-primary.text-white p.lead {
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* Dark mode styles */
+  @media (prefers-color-scheme: dark) {
+    .py-5.bg-primary.text-white {
+      background-color: var(--primary-dark-mode) !important;
+    }
+    
+    .py-5.bg-primary.text-white .btn-outline-primary:hover {
+      color: var(--primary-dark-mode) !important;
+    }
+  }
+  
+  /* High contrast mode styles - add .high-contrast to body when needed */
+  body.high-contrast .py-5.bg-primary.text-white {
+    background-color: var(--primary-hc) !important;
+    color: var(--text-hc) !important;
+    border: 2px solid var(--border-hc) !important;
+  }
+  
+  body.high-contrast .py-5.bg-primary.text-white .btn-outline-primary {
+    border: 3px solid var(--text-hc) !important;
+  }
+  
+  body.high-contrast .py-5.bg-primary.text-white .btn-outline-primary:hover {
+    background-color: var(--text-hc) !important;
+    color: var(--bg-hc) !important;
+  }

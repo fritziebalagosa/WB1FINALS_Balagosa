@@ -1,237 +1,730 @@
-        /* Theme application */
-        [data-theme="light"] {
-            --bg: var(--bg-light);
-            --text: var(--text-light);
-            --card-bg: var(--card-bg-light);
-            --border: var(--border-light);
-            --primary-color: var(--primary);
-            --primary-hover: var(--primary-dark);
-        }
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --secondary: #64748b;
+    --accent: #f59e0b;
+    --light: #f8fafc;
+    --dark: #1e293b;
+    --success: #10b981;
+    --info: #0ea5e9;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --bg-light: #ffffff;
+    --text-light: #1e293b;
+    --card-bg-light: #ffffff;
+    --border-light: #e2e8f0;
+    
+    /* Dark mode variables */
+    --bg-dark: #121212;
+    --text-dark: #f8fafc;
+    --card-bg-dark: #1e1e1e;
+    --card-header-dark: #2a2a2a;
+    --border-dark: #2d2d2d;
+    --primary-dark-mode: #818cf8;
+    --secondary-dark-mode: #94a3b8;
+    
+    /* High contrast variables */
+    --primary-hc: #0000ff;
+    --bg-hc: #000000;
+    --text-hc: #ffffff;
+    --border-hc: #ffffff;
+}
 
-        [data-theme="dark"] {
-            --bg: var(--bg-dark);
-            --text: var(--text-dark);
-            --card-bg: var(--card-bg-dark);
-            --border: var(--border-dark);
-            --primary-color: var(--primary-dark-mode);
-            --primary-hover: var(--primary-dark);
-        }
+/* Base styles */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: var(--text-light);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--bg-light);
+}
 
-        [data-theme="high-contrast"] {
-            --bg: var(--bg-hc);
-            --text: var(--text-hc);
-            --card-bg: var(--bg-hc);
-            --border: var(--border-hc);
-            --primary-color: var(--primary-hc);
-            --primary-hover: var(--primary-hc);
-        }
+/* Dark mode - only apply when dark-mode class is present AND high-contrast is not */
+body.dark-mode:not(.high-contrast) {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
 
-        /* Skip to content link */
-        .skip-to-content {
-            position: absolute;
-            left: -9999px;
-            top: auto;
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-        }
+body.dark-mode:not(.high-contrast) .navbar,
+body.dark-mode:not(.high-contrast) .modal-content,
+body.dark-mode:not(.high-contrast) .company-card,
+body.dark-mode:not(.high-contrast) .filter-section {
+    background-color: var(--card-bg-dark);
+    color: var(--text-dark);
+    border-color: var(--border-dark);
+}
 
-        .skip-to-content:focus {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: auto;
-            height: auto;
-            padding: 10px 15px;
-            background-color: var(--primary-color);
-            color: white;
-            z-index: 9999;
-            text-decoration: none;
-        }
+body.dark-mode:not(.high-contrast) .navbar-brand,
+body.dark-mode:not(.high-contrast) .nav-link,
+body.dark-mode:not(.high-contrast) .modal-title,
+body.dark-mode:not(.high-contrast) h1, 
+body.dark-mode:not(.high-contrast) h2, 
+body.dark-mode:not(.high-contrast) h3, 
+body.dark-mode:not(.high-contrast) h4, 
+body.dark-mode:not(.high-contrast) h5, 
+body.dark-mode:not(.high-contrast) h6 {
+    color: var(--text-dark);
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text);
-            background-color: var(--bg);
-            transition: background-color 0.3s, color 0.3s;
-        }
+/* Fix for text-secondary and text-muted in dark mode */
+body.dark-mode:not(.high-contrast) .text-secondary,
+body.dark-mode:not(.high-contrast) .text-muted,
+body.dark-mode:not(.high-contrast) small.text-muted {
+    color: #a1a1aa !important;
+}
 
-        .navbar-brand {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
+/* Fix for links in dark mode */
+body.dark-mode:not(.high-contrast) a,
+body.dark-mode:not(.high-contrast) .list-group-item a,
+body.dark-mode:not(.high-contrast) .modal-footer a,
+body.dark-mode:not(.high-contrast) .footer-links a,
+body.dark-mode:not(.high-contrast) .footer-legal-links a,
+body.dark-mode:not(.high-contrast) .contact-info {
+    color: var(--primary-dark-mode);
+}
 
-        .company-card {
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            background-color: var(--card-bg);
-            color: var(--text);
-            padding: 1.5rem;
-        }
+body.dark-mode:not(.high-contrast) a:hover,
+body.dark-mode:not(.high-contrast) .list-group-item a:hover,
+body.dark-mode:not(.high-contrast) .modal-footer a:hover,
+body.dark-mode:not(.high-contrast) .footer-links a:hover,
+body.dark-mode:not(.high-contrast) .footer-legal-links a:hover,
+body.dark-mode:not(.high-contrast) .contact-info:hover {
+    color: var(--light);
+}
 
-        .company-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            border-color: var(--primary-color);
-        }
+body.dark-mode:not(.high-contrast) .form-control,
+body.dark-mode:not(.high-contrast) .form-select {
+    background-color: var(--card-bg-dark);
+    border-color: var(--border-dark);
+    color: var(--text-dark);
+}
 
-        .company-logo {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 1px solid var(--border);
-        }
+body.dark-mode:not(.high-contrast) .form-check-label,
+body.dark-mode:not(.high-contrast) .form-label {
+    color: var(--text-dark);
+}
 
-        .featured-tag {
-            background-color: var(--accent);
-            color: var(--dark);
-            font-size: 0.75rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 20px;
-            margin-left: 0.5rem;
-            font-weight: normal;
-        }
+body.dark-mode:not(.high-contrast) .form-control::placeholder,
+body.dark-mode:not(.high-contrast) .form-select::placeholder {
+    color: #a1a1aa;
+}
 
-        .industry-tag {
-            background-color: var(--secondary);
-            color: var(--light);
-            font-weight: normal;
-            font-size: 0.8rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            display: inline-block;
-        }
+body.dark-mode:not(.high-contrast) .company-card:hover {
+    border-color: var(--primary-dark-mode);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 
-        .filter-section {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 1.5rem;
-            border: 1px solid var(--border);
-            position: sticky;
-            top: 20px;
-            color: var(--text);
-            margin-bottom: 1.5rem;
-        }
+body.dark-mode:not(.high-contrast) .btn-primary {
+    background-color: var(--primary-dark-mode);
+    border-color: var(--primary-dark-mode);
+    color: var(--bg-dark);
+}
 
-        .form-check-label, .form-label {
-            color: var(--text);
-        }
+body.dark-mode:not(.high-contrast) .btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
 
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
-        }
+body.dark-mode:not(.high-contrast) .btn-outline-primary {
+    color: var(--primary-dark-mode);
+    border-color: var(--primary-dark-mode);
+}
 
-        .btn-primary:hover {
-            background-color: var(--primary-hover);
-            border-color: var(--primary-hover);
-        }
+body.dark-mode:not(.high-contrast) .btn-outline-primary:hover {
+    background-color: var(--primary-dark-mode);
+    color: var(--bg-dark);
+}
 
-        .btn-outline-primary {
-            color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
+body.dark-mode:not(.high-contrast) hr {
+    background-color: var(--border-dark);
+}
 
-        .btn-outline-primary:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
+/* Fix for pagination in dark mode */
+body.dark-mode:not(.high-contrast) .pagination .page-link {
+    background-color: var(--card-bg-dark);
+    border-color: var(--border-dark);
+    color: var(--text-dark);
+}
 
-        .section-title {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
+body.dark-mode:not(.high-contrast) .pagination .page-item.active .page-link {
+    background-color: var(--primary-dark-mode);
+    border-color: var(--primary-dark-mode);
+    color: var(--bg-dark);
+}
 
-        /* Modal Styles */
-        .modal-content {
-            background-color: var(--card-bg);
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
+body.dark-mode:not(.high-contrast) .pagination .page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: var(--card-bg-dark);
+    border-color: var(--border-dark);
+}
 
-        .modal-header, .modal-footer {
-            border-color: var(--border);
-        }
+/* Fix for footer in dark mode */
+body.dark-mode:not(.high-contrast) .footer {
+    background-color: #1a1a1a;
+    color: var(--text-dark);
+    border-color: var(--border-dark);
+}
 
-        /* Toast notification */
-        .toast-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1060;
-        }
+body.dark-mode:not(.high-contrast) .footer h2 {
+    color: var(--text-dark);
+}
 
-        /* Form controls in dark mode */
-        [data-theme="dark"] .form-control,
-        [data-theme="dark"] .form-select {
-            background-color: var(--card-bg-dark);
-            border-color: var(--border-dark);
-            color: var(--text-dark);
-        }
+body.dark-mode:not(.high-contrast) .footer p,
+body.dark-mode:not(.high-contrast) .copyright {
+    color: #a1a1aa;
+}
 
-        [data-theme="dark"] .form-control:focus,
-        [data-theme="dark"] .form-select:focus {
-            background-color: var(--card-bg-dark);
-            color: var(--text-dark);
-        }
+body.dark-mode:not(.high-contrast) .social-icon {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-dark);
+}
 
-        /* Form controls in high contrast mode */
-        [data-theme="high-contrast"] .form-control,
-        [data-theme="high-contrast"] .form-select {
-            background-color: var(--bg-hc);
-            border-color: var(--border-hc);
-            color: var(--text-hc);
-        }
+body.dark-mode:not(.high-contrast) .social-icon:hover {
+    background-color: var(--primary-dark-mode);
+}
 
-        [data-theme="high-contrast"] .form-control:focus,
-        [data-theme="high-contrast"] .form-select:focus {
-            background-color: var(--bg-hc);
-            color: var(--text-hc);
-        }
+body.dark-mode:not(.high-contrast) .contact-icon {
+    color: var(--primary-dark-mode);
+}
 
-        /* Text colors for different themes */
-        [data-theme="dark"] .text-secondary,
-        [data-theme="dark"] .text-muted {
-            color: #a0aec0 !important;
-        }
+body.dark-mode:not(.high-contrast) .contact-label {
+    color: var(--text-dark);
+}
 
-        [data-theme="high-contrast"] .text-secondary,
-        [data-theme="high-contrast"] .text-muted {
-            color: var(--text-hc) !important;
-        }
+body.dark-mode:not(.high-contrast) .footer-bottom {
+    border-color: var(--border-dark);
+}
 
-        /* Dropdown menu in dark mode */
-        [data-theme="dark"] .dropdown-menu {
-            background-color: var(--card-bg-dark);
-            border-color: var(--border-dark);
-        }
+/* High contrast mode - always takes precedence over dark mode */
+body.high-contrast {
+    background-color: var(--bg-hc);
+    color: var(--text-hc);
+}
 
-        [data-theme="dark"] .dropdown-item {
-            color: var(--text-dark);
-        }
+body.high-contrast .navbar,
+body.high-contrast .company-card,
+body.high-contrast .filter-section,
+body.high-contrast .modal-content,
+body.high-contrast .list-group-item {
+    background-color: var(--bg-hc);
+    color: var(--text-hc);
+    border: 2px solid var(--border-hc);
+}
 
-        [data-theme="dark"] .dropdown-item:hover {
-            background-color: var(--border-dark);
-        }
+body.high-contrast .navbar-brand,
+body.high-contrast .nav-link,
+body.high-contrast h1, 
+body.high-contrast h2, 
+body.high-contrast h3, 
+body.high-contrast h4, 
+body.high-contrast h5, 
+body.high-contrast h6,
+body.high-contrast p,
+body.high-contrast .modal-title,
+body.high-contrast .section-title {
+    color: var(--text-hc);
+}
 
-        /* Dropdown menu in high contrast mode */
-        [data-theme="high-contrast"] .dropdown-menu {
-            background-color: var(--bg-hc);
-            border-color: var(--border-hc);
-        }
+/* Fix for text-secondary and text-muted in high contrast mode */
+body.high-contrast .text-secondary,
+body.high-contrast .text-muted,
+body.high-contrast small.text-muted {
+    color: var(--text-hc) !important;
+}
 
-        [data-theme="high-contrast"] .dropdown-item {
-            color: var(--text-hc);
-        }
-
-        [data-theme="high-contrast"] .dropdown-item:hover {
-            background-color: var(--primary-hc);
-            color: var(--bg-hc);
-        }
+/* Fix for links in high contrast mode */
 
 
+body.high-contrast .form-control,
+body.high-contrast .form-select {
+    background-color: var(--bg-hc);
+    border: 2px solid var(--text-hc);
+    color: var(--text-hc);
+}
+
+body.high-contrast .form-check-label,
+body.high-contrast .form-label {
+    color: var(--text-hc);
+}
+
+body.high-contrast .form-control::placeholder,
+body.high-contrast .form-select::placeholder {
+    color: var(--text-hc);
+    opacity: 0.7;
+}
+
+body.high-contrast .btn {
+    border: 2px solid var(--text-hc);
+    color: var(--text-hc);
+    background-color: var(--bg-hc);
+    font-weight: bold;
+}
+
+body.high-contrast .btn-primary,
+body.high-contrast .btn-secondary {
+    background-color: var(--primary-hc);
+}
+
+body.high-contrast .company-card:hover {
+    transform: translateY(-5px);
+    border: 2px solid var(--text-hc);
+    box-shadow: none;
+}
+
+body.high-contrast .featured-tag,
+body.high-contrast .industry-tag {
+    background-color: var(--primary-hc);
+    color: var(--text-hc);
+    border: 1px solid var(--text-hc);
+}
+
+body.high-contrast .company-logo {
+    border: 2px solid var(--text-hc);
+}
+
+body.high-contrast hr {
+    background-color: var(--text-hc);
+}
+
+/* Fix for pagination in high contrast mode */
+body.high-contrast .pagination .page-link {
+    background-color: var(--bg-hc);
+    border: 2px solid var(--text-hc);
+    color: var(--text-hc);
+}
+
+body.high-contrast .pagination .page-item.active .page-link {
+    background-color: var(--primary-hc);
+    border-color: var(--text-hc);
+    color: var(--text-hc);
+}
+
+body.high-contrast .pagination .page-item.disabled .page-link {
+    color: var(--text-hc);
+    opacity: 0.5;
+    background-color: var(--bg-hc);
+    border-color: var(--text-hc);
+}
+
+/* Fix for footer in high contrast mode */
+body.high-contrast .footer {
+    background-color: var(--bg-hc);
+    color: var(--text-hc);
+    border-top: 2px solid var(--text-hc);
+}
+
+body.high-contrast .footer h2 {
+    color: var(--text-hc);
+}
+
+body.high-contrast .footer p,
+body.high-contrast .copyright {
+    color: var(--text-hc);
+}
+
+body.high-contrast .social-icon {
+    background-color: var(--primary-hc);
+    border: 2px solid var(--text-hc);
+    color: var(--text-hc);
+}
+
+body.high-contrast .contact-icon {
+    color: var(--text-hc);
+}
+
+body.high-contrast .contact-label {
+    color: var(--text-hc);
+}
+
+body.high-contrast .footer-bottom {
+    border-top: 1px solid var(--text-hc);
+}
+
+/* Skip to content link */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    padding: 8px 12px;
+    background-color: var(--primary);
+    color: white;
+    z-index: 1001;
+    transition: top 0.3s;
+}
+
+body.high-contrast .skip-to-content {
+    background-color: var(--primary-hc);
+    color: var(--text-hc);
+    border: 2px solid var(--text-hc);
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* Accessibility controls */
+.accessibility-controls {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 1000;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode:not(.high-contrast) .accessibility-controls {
+    background: var(--card-bg-dark);
+}
+
+body.high-contrast .accessibility-controls {
+    background: var(--bg-hc);
+    border: 2px solid var(--text-hc);
+    box-shadow: none;
+}
+
+.accessibility-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--light);
+    color: var(--dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.accessibility-button:hover {
+    background: var(--primary);
+    color: white;
+}
+
+body.dark-mode:not(.high-contrast) .accessibility-button {
+    background: #2d2d2d;
+    color: var(--text-dark);
+}
+
+body.dark-mode:not(.high-contrast) .accessibility-button:hover {
+    background: var(--primary-dark-mode);
+    color: var(--bg-dark);
+}
+
+body.high-contrast .accessibility-button {
+    background: var(--bg-hc);
+    color: var(--text-hc);
+    border: 2px solid var(--text-hc);
+}
+
+body.high-contrast .accessibility-button:hover {
+    background: var(--primary-hc);
+}
+
+
+body.high-contrast .hero-section {
+    background: var(--primary-hc);
+    color: var(--text-hc);
+    border-bottom: 2px solid var(--text-hc);
+}
+
+/* Company Card Styling */
+.company-card {
+    border-radius: 10px;
+    border: 1px solid var(--border-light);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background-color: var(--card-bg-light);
+    color: var(--text-light);
+    padding: 1.5rem;
+}
+
+.company-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+.company-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid var(--border-light);
+}
+
+.featured-tag {
+    background-color: var(--accent);
+    color: var(--dark);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    margin-left: 0.5rem;
+    font-weight: normal;
+}
+
+.industry-tag {
+    background-color: var(--secondary);
+    color: var(--light);
+    font-weight: normal;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.filter-section {
+    background-color: var(--card-bg-light);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-light);
+    position: sticky;
+    top: 20px;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.form-check-label, .form-label {
+    color: var(--text-light);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.section-title {
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* Modal Styles */
+.modal-content {
+    background-color: var(--card-bg-light);
+    color: var(--text-light);
+    border: 1px solid var(--border-light);
+}
+
+.modal-header, .modal-footer {
+    border-color: var(--border-light);
+}
+
+/* Toast notification */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1060;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+    background-color: var(--card-bg-light);
+    border-color: var(--border-light);
+}
+
+.dropdown-item {
+    color: var(--text-light);
+}
+
+.dropdown-item:hover {
+    background-color: var(--border-light);
+}
+
+body.dark-mode:not(.high-contrast) .dropdown-menu {
+    background-color: var(--card-bg-dark);
+    border-color: var(--border-dark);
+}
+
+body.dark-mode:not(.high-contrast) .dropdown-item {
+    color: var(--text-dark);
+}
+
+body.dark-mode:not(.high-contrast) .dropdown-item:hover {
+    background-color: var(--border-dark);
+}
+
+body.high-contrast .dropdown-menu {
+    background-color: var(--bg-hc);
+    border-color: var(--border-hc);
+}
+
+body.high-contrast .dropdown-item {
+    color: var(--text-hc);
+}
+
+body.high-contrast .dropdown-item:hover {
+    background-color: var(--primary-hc);
+    color: var(--bg-hc);
+}
+
+/* List group styling */
+.list-group-item {
+    background-color: transparent;
+    color: var(--text-light);
+    border-color: var(--border-light);
+}
+
+.list-group-item a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.list-group-item a:hover {
+    color: var(--primary-dark);
+}
+
+/* Footer styling */
+.footer {
+    background-color: #1e2735;
+    color: #f5f5f5;
+    padding: 4rem 0 2rem;
+}
+
+.footer h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.footer p {
+    color: #b0b8c4;
+    line-height: 1.6;
+}
+
+.footer-links {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: #b0b8c4;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-right: 0.5rem;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.contact-item {
+    margin-bottom: 1.25rem;
+}
+
+.contact-icon {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-right: 0.75rem;
+    width: 20px;
+    text-align: center;
+}
+
+.contact-label {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    display: block;
+    color: #ffffff;
+}
+
+.contact-info {
+    color: #b0b8c4;
+    display: block;
+    text-decoration: none;
+}
+
+.contact-info:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    margin-top: 3rem;
+}
+
+.footer-legal-links a {
+    color: #b0b8c4;
+    text-decoration: none;
+    margin-left: 1.5rem;
+}
+
+.footer-legal-links a:hover {
+    color: #ffffff;
+}
+
+.copyright {
+    color: #7d8a9a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .filter-section {
+        position: static;
+    }
+    
+    .accessibility-controls {
+        bottom: 20px;
+        top: auto;
+        right: 20px;
+        flex-direction: row;
+    }
+    
+    .footer-legal-links a {
+        margin-left: 0;
+        margin-right: 1.5rem;
+    }
+}
+
+/* Font size controls */
+body.font-large {
+    font-size: 1.2rem;
+}
+
+body.font-larger {
+    font-size: 1.4rem;
+}
